@@ -53,11 +53,11 @@ const Sidebar = () => {
         <div className='w-full h-screen sidebar-bg border-sidebarDiv border-r-[0.2px] relative'>
             
             <div className='w-full h-full absolute top-0 left-0'>
-                <Image 
+                {/* <Image 
                     src={require('../assets/images/sidebar.png')}
                     alt='sidebar'
                     className='w-full h-full object-cover'
-                />
+                /> */}
             </div>
             <div className="h-full w-full relative slim-scroll flex flex-col">
 
@@ -68,11 +68,11 @@ const Sidebar = () => {
                 {/* TOP  */}
                 <div className="w-full py-6  2xl:py-10  flex flex-col items-center justify-center">
                     <div className='w-[50%] flex items-center justify-center ' >
-                        <Image 
+                        {/* <Image 
                             src={require('../assets/icons/Logo.svg')}
                             alt='onebot.com'
                             className='w-full'
-                        />
+                        /> */}
                     </div>
                 </div>
 
@@ -80,10 +80,10 @@ const Sidebar = () => {
                 {/* USER DETAILS SECTION */}
                 <div className='w-full flex flex-col items-center gap-4 mb-[38px] mt-[20px] 2xl:mt-[27px] 2xl:mb-[47px]' >
                     <div className='w-[48px] h-[48px] rounded-full overflow-hidden flex items-center justify-center'>
-                        <Image 
+                        {/* <Image 
                             src={require('../assets/images/Avatar.png')} 
                             alt='onebot.com'
-                        />
+                        /> */}
                     </div>
                     <div className='w-full flex flex-col items-center gap-1' >
                         <h2 className='text-base text-white font-[400] text-center' >Kenny Michael</h2>
