@@ -53,7 +53,7 @@ const Navbar = () => {
                     {/* RIGHT */}
                     <div className='flex items-center gap-3'>
                         {/* Icon */}
-                        <button className='transition duration-200 w-[30px] h-[30px] rounded-[6px] bg-noteIconBtn hover:bg-sidebarTxtHover active:bg-sidebarTxtActive flex items-center justify-center relative'>
+                        {/* <button className='transition duration-200 w-[30px] h-[30px] rounded-[6px] bg-noteIconBtn hover:bg-sidebarTxtHover active:bg-sidebarTxtActive flex items-center justify-center relative'>
                             {isNotification ? (<div className='w-5 h-5' >
                                 <Image 
                                     src={require('../assets/icons/note.png')}
@@ -67,12 +67,12 @@ const Navbar = () => {
                                     className='w-full'
                                 />
                             </div>)}
-                        </button>
+                        </button> */}
                         <button className='w-[36px] h-[36px] rounded-full bg-noteIconBtn overflow-hidden '>
-                            <Image 
+                            {/* <Image 
                                 src={require('../assets/images/Avatar.png')}
                                 alt="hometownadmin.com"
-                            />
+                            /> */}
                         </button>
 
                     </div>
