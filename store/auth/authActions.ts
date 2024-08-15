@@ -4,7 +4,7 @@ import axios from "axios";
 import { RootState } from "../store";
 import { baseUrl } from "@/config";
 import cogoToast from "cogo-toast";
-import { updateDetails } from "@/app/dashboard/profile/page";
+// import { updateDetails } from "@/app/dashboard/profile/page";
 
 
 // const baseUrl = process.env.BASE_URL
@@ -125,7 +125,7 @@ export const getProfileData = createAsyncThunk(
 
 export const updateProfileData = createAsyncThunk(
   "updateProfileData",
-  async ( values: updateDetails, { rejectWithValue, getState, dispatch }
+  async ( values: any /*UpdateDetails*/, { rejectWithValue, getState, dispatch }
   ) => {
     const { auth } = getState() as RootState
     try {
