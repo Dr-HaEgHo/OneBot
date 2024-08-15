@@ -5,7 +5,7 @@ import Image from 'next/image';
 import React, { Dispatch, FC, SetStateAction, useContext, useState } from 'react';
 import { useParams, usePathname } from 'next/navigation';
 import { useRouter } from 'next/navigation';
-import { links } from './homepage/Navbar';
+// import { links } from './homepage/Navbar';
 import Link from 'next/link';
 import { GlobalContext } from '@/context/context';
 // import Prompt from './Prompt';/
@@ -181,11 +181,11 @@ export const SidebarMobile =() => {
              {/* NAV */}
              <div className='flex h-full flex-col gap-[40px] w-full items-center justify-center' >
                 <ul className='flex w-[70%] max-w-[400px] flex-col items-center gap-[40px]' >
-                    {
+                    {/* {
                         links && links.map(link => (
                             <a key={link?.id} href={link?.route} className='w-full flex items-center py-2 rounded transition duration hover:bg-blackHover active:bg-blackActive'><li className='text-sm 2xl:text-base text-center text-headDesc w-full'>{link?.title}</li></a>
                         ))
-                    }
+                    } */}
                 </ul>
             
                 <Link href="/signup" className=''>

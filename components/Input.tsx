@@ -125,8 +125,8 @@ export const DropDownFade: FC<dropDownProps> = (props) => {
                     height: isOpen ? 150 : 0
                 }} className='transition duration-[1000ms] w-full rounded-md bg-white shadow absolute z-10 top-[120%] slim-scroll' >
                     {
-                        props?.data.map((item:any) => (
-                            <p ref={pRef} onClick={() => handleDropItem(item.name)} className='transition duration-200 cursor-pointer p-2 text-[11px] 2xl:text-xs hover:bg-sidebarTxtHover active:bg-sidebarTxtActive' >{item.name}</p>
+                        props?.data.map((item:any, idx:number) => (
+                            <p ref={pRef} key={idx} onClick={() => handleDropItem(item.name)} className='transition duration-200 cursor-pointer p-2 text-[11px] 2xl:text-xs hover:bg-sidebarTxtHover active:bg-sidebarTxtActive' >{item.name}</p>
                         ))
                     }
 

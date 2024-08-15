@@ -27,6 +27,7 @@ const page = () => {
   useEffect(() => {
     updateButton()
   }, [])
+  
   return (
     <>
         { hasConnected ? (<Congrats
