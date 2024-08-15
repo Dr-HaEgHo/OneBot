@@ -83,8 +83,8 @@ export default function Signup() {
 
         {/* Cards */}
         <div className="w-full h-full flex flex-col gap-8 items-center justify-center">
-          {cards?.map((item) => (
-            <SocialCard data={item}/>
+          {cards?.map((item, idx) => (
+            <SocialCard key={idx} data={item}/>
           ))}
         </div>
       </div>

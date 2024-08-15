@@ -6,7 +6,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React, { useContext, useEffect, useState } from "react";
 
-const page = () => {
+const Page = () => {
   const [hasAccounts, setHasAccount] = useState(false);
   const [ hasConnected, setHasConnected ] = useState(false);
   const { button, setButton } = useContext(GlobalContext)
@@ -27,7 +27,7 @@ const page = () => {
   useEffect(() => {
     updateButton()
   }, [])
-  
+
   return (
     <>
         { hasConnected ? (<Congrats
@@ -74,4 +74,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

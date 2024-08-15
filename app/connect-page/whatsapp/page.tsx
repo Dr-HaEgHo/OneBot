@@ -13,7 +13,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import React, { useContext, useEffect, useState } from "react";
 import PinInput from "react-pin-input";
 
-const page = () => {
+const Page = () => {
   const router = useRouter();
   const [hasAccounts, setHasAccount] = useState(false);
   const { button, setButton } = useContext(GlobalContext);
@@ -202,4 +202,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

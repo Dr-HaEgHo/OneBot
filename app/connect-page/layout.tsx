@@ -5,7 +5,7 @@ import { button, ImageData } from "@/types";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import React, { Children, useContext, useEffect } from "react";
 
-const layout = ({ children }: { children: React.ReactNode }) => {
+const Layout = ({ children }: { children: React.ReactNode }) => {
   const search = useSearchParams();
   const path = usePathname();
   const page = new URLSearchParams(search).get("page");
@@ -119,4 +119,4 @@ const layout = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-export default layout;
+export default Layout;

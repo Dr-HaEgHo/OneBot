@@ -51,7 +51,7 @@ const data = {
   description: "Sign In to OneBot.",
 };
 
-export default function Signup() {
+export default function Signin() {
   const router = useRouter();
   return (
     <main className="w-full h-fit lg:h-screen flex items-center ">

@@ -15,7 +15,7 @@ const data = {
     description: "Sign Up to create an account."
 }
 
-const page = () => {
+const Page = () => {
     const search = useSearchParams();
     const channel = new URLSearchParams(search).get('channel')
 
@@ -60,4 +60,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page
