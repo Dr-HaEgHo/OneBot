@@ -26,15 +26,15 @@ const Sidebar = () => {
     const [logoutOpen, setLogoutOpen] = useState(false)
     
 
-    const sidebarLinks = [
-        { id: 2, image:require('../assets/icons/dash.png'), title: "Dashboard", route: "/dashboard", subRoutes: "/dashboard/incubatees/new-incubatee", subRoutes1: `/dashboard/incubatees/${param?.id}` },
-        { id: 4, image:require('../assets/icons/courses.png'), title: "Courses", route: "/dashboard/courses", subRoutes1: `/dashboard/users/${param?.id}` },
-        { id: 3, image:require('../assets/icons/Users_Group2.svg'), title: "Students", route: "/dashboard/students", subRoutes1: `/dashboard/users/${param?.id}` },
-        { id: 3, image:require('../assets/icons/profile.png'), title: "Announcements", route: "/dashboard/announcements", subRoutes1: `/dashboard/announcements`},
-        { id: 5, image:require('../assets/icons/chat.png'), title: "Stac Hub", route: "/dashboard/chat", subRoutes1: `/dashboard/users/${param?.id}` },
-        // { id: 6, image:require('../assets/icons/chat.png'), title: "Templates & Downloads", route: "/dashboard/downloads", subRoutes1: `/dashboard/users/${param?.id}` },
-        { id: 7, image:require('../assets/icons/settings.png'), title: "Settings", route: "/dashboard/settings", subRoutes1: `/dashboard/settings/${param?.id}` },
-    ]
+    // const sidebarLinks = [
+    //     { id: 2, image:require('../assets/icons/dash.png'), title: "Dashboard", route: "/dashboard", subRoutes: "/dashboard/incubatees/new-incubatee", subRoutes1: `/dashboard/incubatees/${param?.id}` },
+    //     { id: 4, image:require('../assets/icons/courses.png'), title: "Courses", route: "/dashboard/courses", subRoutes1: `/dashboard/users/${param?.id}` },
+    //     { id: 3, image:require('../assets/icons/Users_Group2.svg'), title: "Students", route: "/dashboard/students", subRoutes1: `/dashboard/users/${param?.id}` },
+    //     { id: 3, image:require('../assets/icons/profile.png'), title: "Announcements", route: "/dashboard/announcements", subRoutes1: `/dashboard/announcements`},
+    //     { id: 5, image:require('../assets/icons/chat.png'), title: "Stac Hub", route: "/dashboard/chat", subRoutes1: `/dashboard/users/${param?.id}` },
+    //     { id: 6, image:require('../assets/icons/chat.png'), title: "Templates & Downloads", route: "/dashboard/downloads", subRoutes1: `/dashboard/users/${param?.id}` },
+    //     { id: 7, image:require('../assets/icons/settings.png'), title: "Settings", route: "/dashboard/settings", subRoutes1: `/dashboard/settings/${param?.id}` },
+    // ]
 
     const handleLogout = () => {
         // dispatch(logout())
@@ -96,7 +96,7 @@ const Sidebar = () => {
 
                     {/* MAIN LINKS */}
 
-                    <div className="w-full flex flex-col items-start gap-1 py-2">
+                    {/* <div className="w-full flex flex-col items-start gap-1 py-2">
                         {sidebarLinks?.map((item) => (
                             <div key={item.id} onClick={() => {
                                 router.push(item.route)
@@ -123,7 +123,7 @@ const Sidebar = () => {
                                 <p className={`text-xs 2xl:text-sm text-white font-[200]`} >{item.title && item.title}</p>
                             </div>
                         ))}
-                    </div>
+                    </div> */}
 
 
                     {/* SYSTEM LINKS */}
