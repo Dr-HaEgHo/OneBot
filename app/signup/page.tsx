@@ -77,7 +77,7 @@ export default function Signup() {
             cta={() => router.push('/login')}
             text="SIGN IN"
             btnClass="border-appOrange"
-            pClass=""
+            pClass="" 
           />
         </div>
 
