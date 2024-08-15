@@ -35,12 +35,12 @@ const Navbar = () => {
                             {location === `/dashboard/incubatees/${params?.id}` && 'Incubatee Details'}
                             {location === "/dashboard/users" && 'Users'}
                             {location === `/dashboard/users/${params?.id}` && 'User Details'}
-                        </h2>
+                        </h2> 
                     </div> */}
                     <div className='flex flex-col items-start lg:hidden' >
                         <HambergerMenu onClick={toggleSidebar} size="24" variant='Bulk' className='text-greytxt hoverActive'/>
                     </div>
-                    <div className='flex flex-col items-start' >
+                    <div className='flex flex-col items-start'>
                         <SearchInputFade
                             placeholder='Type to Search'
                             type='string'
