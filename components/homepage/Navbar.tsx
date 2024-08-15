@@ -26,19 +26,19 @@ const Navbar = () => {
             <SidebarMobile />
             {/* LOGO FOMR MOBILE*/}
             <a href='/' className='w-[90px] block lg:hidden'>
-                <Image 
+                {/* <Image 
                     src={require('../../assets/images/logoblack.png')}
                     alt='onebot.com'
                     className='w-full'
-                />
+                /> */}
             </a>  
               {/* LOGO FOR DESKTOP AND TAB */}
             <a href='/' className='w-[123px] hidden lg:block'>
-                <Image 
+                {/* <Image 
                     src={require('../../assets/images/logoblack.png')}
                     alt='onebot.com'
                     className='w-full'
-                />
+                /> */}
             </a>    
 
 
@@ -55,11 +55,11 @@ const Navbar = () => {
             <Link href="/signup" className='hidden lg:block'>
                 <button className='buttons-2 flex items-center gap-1' >
                     <p className='text-xs 2xl:text-sm text-white' >Get Started</p>
-                    <Image 
+                    {/* <Image 
                         src={require('../../assets/icons/circleArrow.png')}
                         alt='onebot.com'
                         className='w-[18px]'
-                    />
+                    /> */}
                 </button>
             </Link>
             <div onClick={toggleSidebar} className='block lg:hidden cursor-pointer p-1 transition duration-200 active:bg-blackHover rounded hoverActive'>

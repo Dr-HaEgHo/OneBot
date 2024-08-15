@@ -168,11 +168,11 @@ export const SidebarMobile =() => {
             <div className='w-full flex items-center justify-between'>
                 {/* LOGO FOMR MOBILE*/}
             <a href='/' className='w-[90px] block lg:hidden'>
-                <Image 
+                {/* <Image 
                     src={require('../assets/images/logoblack.png')}
                     alt='onebot.com'
                     className='w-full'
-                />
+                /> */}
             </a>
                 <CloseSquare onClick={toggleSidebar} className='text-primary transition duration-200 w-10 min-w-10 h-10 cursor-pointer hoverActive' variant="Bold" />
             </div>
@@ -191,11 +191,11 @@ export const SidebarMobile =() => {
                 <Link href="/signup" className=''>
                     <button className='buttons-2 flex items-center gap-1' >
                         <p className='text-xs 2xl:text-sm text-white' >Get Started</p>
-                        <Image 
+                        {/* <Image 
                             src={require('../assets/icons/circleArrow.png')}
                             alt='onebot.com'
                             className='w-[18px]'
-                        />
+                        /> */}
                     </button>
                 </Link>
             </div>
