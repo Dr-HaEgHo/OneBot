@@ -19,6 +19,7 @@ const config: Config = {
         appOrange: '#FF5252',
         appGrey: '#292828',
         appPear:'#D7DF22',
+        appPearLight:'#F0F58E',
         appWood: '#F9F5F1',
         appJellyfish: '#52C4D4',
         appBlue: '#0084ff',

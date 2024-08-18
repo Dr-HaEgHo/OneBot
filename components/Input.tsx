@@ -91,7 +91,7 @@ export const DropDown: FC<pwInputProps> = (props) => {
 export const DropDownFade: FC<dropDownProps> = (props) => {
 
     const [isOpen, setIsOpen] = useState<boolean>(false)
-    const [value, setValue] = useState<string>('')
+    // const [value, setValue] = useState<string>('')
 
     const pRef = useRef<HTMLParagraphElement>(null)
 
@@ -104,7 +104,7 @@ export const DropDownFade: FC<dropDownProps> = (props) => {
     }
 
     const handleDropItem = (name: string | undefined) => {
-        setValue(name as string);
+        props?.setValue(name as string);
         setIsOpen(prev => prev = !prev);
     }
 
@@ -113,8 +113,8 @@ export const DropDownFade: FC<dropDownProps> = (props) => {
         <div className='input-wrap' >
             <label className='labels'>{props.label && props.label}</label>
             <div className='password-input' >
-                <input onChange={handleChange} value={value} className='input' type={props?.type} placeholder={props.placeholder && props.placeholder} />
-                <div onClick={handleClick} className='absolute cursor-pointer right-[10px] top-1/2 transform -translate-y-1/2 flex items-center justify-center text-icons'>
+                <input onChange={handleChange} value={props.value} className={`input ${props.iClass}`} type={props?.type} placeholder={props.placeholder && props.placeholder} />
+                <div onClick={handleClick} className='absolute cursor-pointer right-[10px] top-1/2 transform -translate-y-1/2 flex items-center justify-center text-icons '>
                     {
                         isOpen ? (<ArrowUp2 variant="Bold" size="20" />) : (<ArrowDown2 variant="Bold" size="20" />)
                     }
@@ -123,7 +123,7 @@ export const DropDownFade: FC<dropDownProps> = (props) => {
 
                 <div style={{
                     height: isOpen ? 150 : 0
-                }} className='transition duration-[1000ms] w-full rounded-md bg-white shadow absolute z-10 top-[120%] slim-scroll' >
+                }} className='transition duration-[1000ms] w-full rounded-md bg-white shadow absolute z-[999] top-[120%] slim-scroll' >
                     {
                         props?.data.map((item:any, idx:number) => (
                             <p ref={pRef} key={idx} onClick={() => handleDropItem(item.name)} className='transition duration-200 cursor-pointer p-2 text-[11px] 2xl:text-xs hover:bg-sidebarTxtHover active:bg-sidebarTxtActive' >{item.name}</p>
@@ -133,6 +133,17 @@ export const DropDownFade: FC<dropDownProps> = (props) => {
                     <div className='w-full h-[2rem]' />
                 </div>
             </div>
+        </div>
+    )
+}
+
+
+export const TextArea: FC<emailInputPropsFade> = (props) => {
+    return (
+        <div className='input-wrap' >
+            { props.label && <label className={`labelsFade ${props.lClass}`}>{props.label && props.label}</label>}
+            <textarea id={props.id} value={props.value} disabled={props?.isDisabled} className={`input !text-links ${props.iClass}`} placeholder={props.placeholder && props.placeholder} />
+            { props.error && <p className='text-error text-[10px] italic'>{props.error}</p>}
         </div>
     )
 }

@@ -77,7 +77,7 @@ const ExistingBot = ({setConnect}: {setConnect: Function}) => {
       <div className="w-full flex items-center gap-2 mt-6">
         <FilledButton
           cta={() => {setConnect(true)}}
-          text="Connectt"
+          text="Connect"
           btnClass="bg-appOrange hover:bg-appOrangeHover px-6"
           pClass="text-white"
         />

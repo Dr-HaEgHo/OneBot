@@ -8,9 +8,9 @@ const ImageComponent: FC<ImageProps> = ({ data, button }) => {
   return (
     <div className="z-[9999] w-full py-12 h-full flex flex-col justify-between">
       {/* LOGO */}
-      <div className="w-[124px] z-[999]">
+      <div className="w-[153px] z-[999]">
         <Image
-          src={require("../..../../assets/icons/Logo.svg")}
+          src={require("../..../../assets/icons/LogoBlack.png")}
           alt="onebot.com"
           className="w-full"
         />

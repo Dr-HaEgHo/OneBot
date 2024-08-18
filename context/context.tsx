@@ -32,7 +32,11 @@ interface ContextProps {
   data: ImageData | null;
   setData: Dispatch<SetStateAction<ImageData | null>>;
   button: button | null;
-  setButton: Dispatch<SetStateAction<button | null>>
+  setButton: Dispatch<SetStateAction<button | null>>;
+  error: string | null;
+  setError: Dispatch<SetStateAction<string | null>>;
+  companyType: string;
+  setCompanyType: Dispatch<SetStateAction<string>>;
 }
 
 // const initialState = {
@@ -57,7 +61,11 @@ export const GlobalContext = createContext<ContextProps>({
   data: null,
   setData: (): ImageData | null => null,
   button: null,
-  setButton : () :button | null => null
+  setButton : () :button | null => null,
+  error: null,
+  setError: () : string | null => null,
+  companyType: '',
+  setCompanyType: () :string => ""
 });
 
 export const GlobalContextProvider = ({
@@ -74,6 +82,9 @@ export const GlobalContextProvider = ({
   const [openChatNav, setOpenChatNav] = useState<boolean>(true);
   const [data, setData] = useState<ImageData | null>(null);
   const [button, setButton ] = useState<button | null>(null)
+  const [error, setError ] = useState<string | null>(null);
+  const [companyType, setCompanyType] = useState<string>("");
+
 
   return (
     <GlobalContext.Provider
@@ -95,7 +106,11 @@ export const GlobalContextProvider = ({
         data, 
         setData,
         button,
-        setButton
+        setButton,
+        error, 
+        setError,
+        companyType,
+        setCompanyType
       }}
     >
       {children}

@@ -27,7 +27,7 @@ const Page = () => {
     }
   return (
     <main className="w-full h-fit lg:h-screen flex items-center ">
-      <div className="w-[44%] h-full hidden bg-athensGray lg:block overflow-hidden relative pl-36 pr-[70px]">
+      <div className="w-[44%] h-full hidden bg-appPearLight lg:block overflow-hidden relative pl-36 pr-[70px]">
         <ImageComponent data={data} button={button}/>
       </div>
 

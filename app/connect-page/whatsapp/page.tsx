@@ -16,7 +16,7 @@ import PinInput from "react-pin-input";
 const Page = () => {
   const router = useRouter();
   const [hasAccounts, setHasAccount] = useState(false);
-  const { button, setButton } = useContext(GlobalContext);
+  const { button, setButton, setData } = useContext(GlobalContext);
   const [hasConnected, setHasConnected] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [formButtonDisabled, setFormButtonDisabled] = useState<boolean>(false);
@@ -45,7 +45,22 @@ const Page = () => {
     updateButton();
   }, []);
 
-  useEffect(() => {}, [queryPage, hasAccounts]);
+  useEffect(() => {
+    if (queryPage === '4') {
+      setData({
+        art: require("../../../assets/icons/connTelegram.svg"),
+        title:
+          "Go Pro to keep </br> new number </br> connected to  </br> Whatsapp",
+        description:
+          "Without PRO subscription this WhatsApp number will be disconnected in 1 month.",
+      });
+
+      setButton({
+        cta: () => {},
+        text: "Back to region selection",
+      });
+    }
+  }, []);
 
   return (
     <>

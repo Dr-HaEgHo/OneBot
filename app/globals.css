@@ -62,7 +62,7 @@ input:disabled{
 }
 
 .input {
-  @apply text-xs 2xl:text-sm rounded w-full border border-defaultInputBorder bg-none py-2 px-4 focus:border focus:border-selectedInputBorder invalid:border invalid:border-errorInputBorder autofill:bg-none
+  @apply text-xs 2xl:text-sm rounded w-full border z-0 border-defaultInputBorder bg-none py-2 px-4 focus:border focus:border-selectedInputBorder invalid:border invalid:border-errorInputBorder autofill:bg-none
 }
 
 .password-input {

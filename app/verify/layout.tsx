@@ -2,55 +2,48 @@
 import ImageComponent from "@/components/ImageSlider";
 import { GlobalContext } from "@/context/context";
 import { button, ImageData } from "@/types";
+import Image from "next/image";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import React, { Children, useContext, useEffect } from "react";
+import React, { Children, useContext, useEffect, useState } from "react";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const search = useSearchParams();
   const path = usePathname();
   const page = new URLSearchParams(search).get("page");
-  const { data, setData, button, setButton } = useContext(GlobalContext);
+  const { data, setData, button, setButton, error, setError } = useContext(GlobalContext);
 
   const router = useRouter();
 
-  console.log("this is the path now: ", path);
 
   const updateData = () => {
+
     switch (path) {
-      case "/connect-page/facebook":
+      case "/verify":
         setData({
-          art: require("../../assets/icons/messenger.svg"),
-          title: "Connect </br> Facebook Page",
-          description:
-            "Follow the instruction to create your first Messenger automation.",
+          art: require("../../assets/icons/verifyArt.svg"),
+          title: "Verify your </br> email address",
+          description: "Email verification is required for new accounts.",
         });
         break;
-      case "/connect-page/instagram":
+      case "/verify/otp":
         setData({
-          art: require("../../assets/icons/connectInsta.svg"),
-          title: "Connect </br> Instagram",
-          description: "Follow the instructions to connect Instagram account.",
-        });
-        break;
-      case "/connect-page/whatsapp":
-        setData({
-          art: require("../../assets/icons/connWhatsapp.svg"),
-          title: "Welcome to </br> WhatsApp Channel",
-          description:
-            "Connect WhatsApp channel via Facebook and start automating your business.",
-        });
-        break;
-      case "/connect-page/telegram":
-        setData({
-          art: require("../../assets/icons/connTelegram.svg"),
-          title: "Let's connect </br> Telegram bot to </br> OneBot",
-          description: "You can create a new bot or connect existing one.",
+          art: require("../../assets/icons/verifyArt.svg"),
+          title: "Verify your </br> email address",
+          description: "Email verification is required for new accounts.",
         });
         break;
       default:
         setData(null);
     }
   };
+
+
+  useEffect(() => {
+    setButton({
+      cta: () => {},
+      text: "Log Out",
+    });
+  }, []);
 
   useEffect(() => {
     updateData();
@@ -97,6 +90,18 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
               </ul>
             </div>
           )}
+          <div className="w-[387px] bg-appOrange absolute top-[52px] right-0 flex items-start gap-4 p-4 rounded-md">
+            <p className="text-links text-white ">
+              This email is already in use. Try another email or log in.
+            </p>
+            <button onClick={() => {}}>
+              <Image
+                src={require("../../assets/icons/close.svg")}
+                alt="close button"
+                className="h-6 w-6"
+              />
+            </button>
+          </div>
           {children}
         </div>
       </div>

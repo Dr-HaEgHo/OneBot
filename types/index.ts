@@ -17,6 +17,7 @@ export interface emailInputPropsFade {
   error?: string | undefined;
   isDisabled?: boolean;
   lClass?: string;
+  iClass?: string;
   touched?: boolean | undefined;
   handleChange?: React.ChangeEventHandler<HTMLInputElement> | undefined;
   blur?: React.FocusEventHandler<HTMLInputElement> | undefined;
@@ -49,7 +50,9 @@ export interface dropDownProps {
     id: number;
     name: string;
   }[];
+  value?: string;
   setValue: Function;
+  iClass?: string;
 }
 
 export interface dropDownPropsFade {
