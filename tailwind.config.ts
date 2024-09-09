@@ -39,6 +39,7 @@ const config: Config = {
         // typography
         textBody: '#232323',
         textSec: '#636363',
+        textInput: "#B7B5B5",
         textInactive: '#cccc3b',
         textSoftRed: '#ea6a6a',
         disabled: '#979797',

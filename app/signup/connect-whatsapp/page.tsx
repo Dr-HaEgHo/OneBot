@@ -34,7 +34,7 @@ const Page = () => {
 
   const updateButton = () => {
     setButton({
-      cta: () => {
+      cta: () => { 
         router.push("/signup");
       },
       text: "Choose another channel",
@@ -63,7 +63,7 @@ const Page = () => {
   }, []);
 
   return (
-    <>
+    <div>
       {hasConnected ? (
         <Congrats
           action={action}
@@ -206,14 +206,30 @@ const Page = () => {
         </div>
       </Modal>)}
 
-      {queryPage === "1" && <GuideWA />}
 
-      {queryPage === "2" && <CountryCode open={isModalOpen} setOpen={setIsModalOpen} />}
 
-      {queryPage === "3" && <LinkInfo setOpen={setIsModalOpen} />}
+      <div className="signup-container">
+        <div className="w-full mx-auto flex flex-col gap-2 mb-9">
+          <h1 className="text-textBody font-bold text-[44px] text-center lh-130">
+          Welcome to the <br /> WhatsApp Channel
+          </h1>
+          <p className="text-textSec text-[15px] text-center tracking-[0.2px]">
+            Connect your WhatsApp channel through Facebook and start automating your business today.
+          </p>
+        </div>
+        <div className="w-3/5 mx-auto">
 
-      {queryPage === "4" && <GoPro setConnect={setHasConnected}/>}
-    </>
+          {queryPage === "1" && <GuideWA />}
+
+          {queryPage === "2" && <CountryCode open={isModalOpen} setOpen={setIsModalOpen} />}
+
+          {queryPage === "3" && <LinkInfo setOpen={setIsModalOpen} />}
+
+          {queryPage === "4" && <GoPro setConnect={setHasConnected}/>}
+
+        </div>
+      </div>
+    </div>
   );
 };
 

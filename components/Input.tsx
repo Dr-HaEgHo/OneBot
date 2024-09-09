@@ -9,7 +9,7 @@ export const InputFade: FC<emailInputPropsFade> = (props) => {
     return (
         <div className='input-wrap' >
             { props.label && <label className={`labelsFade ${props.lClass}`}>{props.label && props.label}</label>}
-            <input id={props.id} value={props.value} type={props?.type} onChange={props.handleChange} onBlur={props.blur} disabled={props?.isDisabled} className='input' placeholder={props.placeholder && props.placeholder} />
+            <input id={props.id} value={props.value} type={props?.type} onChange={props.handleChange} onBlur={props.blur} disabled={props?.isDisabled} className={`input ${props.iClass}`} placeholder={props.placeholder && props.placeholder} />
             { props.error && <p className='text-error text-[10px] italic'>{props.error}</p>}
         </div>
     )
@@ -25,9 +25,9 @@ export const PasswordInputFade: FC<pwInputProps> = (props) => {
 
     return (
         <div className='input-wrap' >
-            <label className='labels'>{props.label && props.label}</label>
-            <div className='password-input' >
-                <input id={props.id} className='input' value={props.value} type={isOpen === true ? "text" : "password"} onChange={props.handleChange} onBlur={props.blur} disabled={props?.isDisabled} placeholder={props.placeholder && props.placeholder} />
+            <label className={`labels ${props.lClass}`}>{props.label && props.label}</label>
+            <div className={`password-input`} >
+                <input id={props.id} className={`input ${props.iClass}`} value={props.value} type={isOpen === true ? "text" : "password"} onChange={props.handleChange} onBlur={props.blur} disabled={props?.isDisabled} placeholder={props.placeholder && props.placeholder} />
                 <div onClick={handleClick} className='absolute cursor-pointer right-[10px] top-1/2 transform -translate-y-1/2 flex items-center justify-center text-icons'>
                     {
                         isOpen === true ? (<EyeSlash variant="Bold" size="20" />) : (<Eye variant="Bold" size="20" />)

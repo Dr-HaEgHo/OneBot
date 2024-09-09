@@ -7,7 +7,7 @@ const GuideWA = () => {
   const router = useRouter()
   return (
     <div className="w-full flex flex-col items-center">
-      <div className="w-full appShadow shadApp max-w-[515px] rounded-md overflow-hidden">
+      <div className="w-full appShadow border-r border-l border-b  max-w-[528px] rounded-md overflow-hidden">
         <div className="w-full aspect-[2.01] bg-orange-400">
           <video
             src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg"
@@ -24,21 +24,16 @@ const GuideWA = () => {
         </div>
       </div>
 
-      <div className="mt-4 w-full max-w-[475px]">
-        <p className="text-textBody text-links lh-150 text-left ">
-          The Facebook wizard will be opened{" "}
-          <span className="font-bold"> in the new tab/window.</span>
+      <div className="mt-4 w-full">
+        <p className="text-textBody text-links lh-150 text-center mt-6">
+        Follow the instructions to connect your new WhatsApp number to ChatBoomer.
         </p>
-        <p className="text-textBody text-links lh-150 text-left mt-2">
-          Follow its instructions to connect new WhatsApp number to OneBot.
-        </p>
-        <p className="text-textBody text-links lh-150 text-left mt-2">
-          You’ll be asked to provide a phone number for your WhatsApp
-          integration. We strongly recommend you to use
-          <span className="font-bold"> a new phone number.</span>
+        <p className="text-textBody text-links lh-150 text-center mt-2">
+        You’ll be prompted to provide a phone number for your WhatsApp <br /> integration. If you don’t have a number, you can use a 
+          <span className="font-bold"> New Phone Number.</span>
         </p>
       </div>
-      <div className="flex items-center gap-4 justify-between w-full max-w-[515px] mt-20 ">
+      <div className="flex items-center gap-4 justify-between w-full max-w-[515px] mt-6 ">
         <FilledButton
           cta={() => {router.push('?page=2')}}
           text="Connect New Number"

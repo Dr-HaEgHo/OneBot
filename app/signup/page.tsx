@@ -5,6 +5,8 @@ import { OutlinedButton } from "@/components/Button";
 import SocialCard from "@/components/SocialCard";
 import ImageComponent from "@/components/ImageSlider";
 import { useRouter } from "next/navigation";
+import { useContext, useEffect } from "react";
+import { GlobalContext } from "@/context/context";
 // import { clearSignupSuccess } from '@/store/auth/authSlice'
 
 const cards = [
@@ -14,7 +16,7 @@ const cards = [
     description:
       "Supercharge your social media marketing with Instagram Automation.",
     image: require("../../assets/icons/instagram.svg"),
-    to: 'facebookAuth',
+    to: 'signup/facebook-auth',
     channel: 'instagram'
   },
   {
@@ -23,7 +25,7 @@ const cards = [
     description:
       "Create Facebook Messenger automation to keep customers happy.",
     image: require("../../assets/icons/facebook.svg"),
-    to: 'facebookAuth',
+    to: 'signup/facebook-auth',
     channel: "facebook",
   },
   {
@@ -32,7 +34,7 @@ const cards = [
     description:
       "Choose the most popular mobile messaging app in the world and reach 2 billion users.",
     image: require("../../assets/icons/whatsapp.svg"),
-    to: 'facebookAuth',
+    to: 'signup/facebook-auth',
     channel: "whatsapp"
   },
   {
@@ -41,48 +43,44 @@ const cards = [
     description:
       "Power up your business with Telegram automation.",
     image: require("../../assets/icons/telegram.svg"),
-    to: 'telegramAuth',
+    to: 'signup/telegram-auth',
+    channel: "telegram",
+  },
+  {
+    id: 5,
+    text: "Sign-up with Email",
+    description:
+      "Gain more control over your account by signing up with either your personal or company email.",
+    image: require("../../assets/icons/email.svg"),
+    to: 'signup/email',
     channel: "telegram",
   },
 ];
 
-const data = {
-    art: require('../../assets/icons/Illustration.svg'), 
-    title: 'What channel </br> would you like to </br> start with',
-    description: "Don't worry, you can connect other channels later."
-}
-
 export default function Signup() {
 
     const router = useRouter()
+    const {setNavSignup} = useContext(GlobalContext);
+
+    useEffect(() => {
+      setNavSignup({
+        language: "English",
+        text: "SIGN IN",
+        route: "/login",
+        classes: "border-appOrange"
+      })
+    },[])
+
   return (
-    <main className="w-full h-fit lg:h-screen flex items-center ">
-      <div className="w-[44%] h-full hidden bg-appPearLight lg:block overflow-hidden relative pl-36 pr-[70px]">
-        <ImageComponent data={data}/>
-      </div>
+    <main className="w-full flex items-center">
 
-      <div className="w-full lg:w-[56%] h-full mx-auto bg-white max-lg:scroll max-lg:mb-20 ">
-        <div className="absolute top-0 right-0 flex p-8 items-center gap-8">
-          <div className="flex items-center gap-2">
-            <Image
-              src={require("../../assets/icons/language.svg")}
-              alt="language"
-              className="h-6 w-6"
-              width={1024}
-              height={1024}
-            />
-            <p className="text-textBody text-links">English</p>
-          </div>
-          <OutlinedButton
-            cta={() => router.push('/login')}
-            text="SIGN IN"
-            btnClass="border-appOrange"
-            pClass="" 
-          />
+      <div className="w-full h-full mx-auto  max-lg:scroll max-lg:mb-20 relative">
+        <div className="w-full mx-auto flex flex-col gap-2 mb-9">
+          <h1 className="text-textBody font-bold text-[44px] text-center lh-130">Which channel would you <br /> like to begin with?</h1>
+          <p className="text-textSec text-[15px] text-center tracking-[0.2px]">No need to worry; you can easily add more channels later.</p>
         </div>
-
         {/* Cards */}
-        <div className="w-full h-full flex flex-col gap-8 items-center justify-center">
+        <div className="w-full grid-container max-w-[880px] mx-auto ">
           {cards?.map((item, idx) => (
             <SocialCard key={idx} data={item}/>
           ))}

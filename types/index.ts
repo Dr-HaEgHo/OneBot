@@ -31,6 +31,8 @@ export interface pwInputProps {
   value: any;
   error?: string | undefined;
   isDisabled?: boolean;
+  lClass?: string;
+  iClass?: string;
   touched?: boolean | undefined;
   handleChange?: React.ChangeEventHandler<HTMLInputElement> | undefined;
   blur?: React.FocusEventHandler<HTMLInputElement> | undefined;
@@ -235,4 +237,13 @@ export interface ImageData {
 export interface ImageProps {
   data: ImageData;
   button?: button;
+}
+
+export interface NavProps {
+  language?: string;
+  text: string;
+  route: string;
+  action?: () => void;
+  classes?: string;
+  pClass?: string
 }

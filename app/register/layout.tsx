@@ -17,8 +17,6 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 
   const updateData = () => {
 
-    
-
 
     switch (path) {
       case "/register":

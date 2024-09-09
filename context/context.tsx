@@ -1,6 +1,6 @@
 "use client";
 
-import { button, courseData, ImageData } from "@/types";
+import { button, courseData, ImageData, NavProps } from "@/types";
 import React, {
   createContext,
   SetStateAction,
@@ -37,6 +37,10 @@ interface ContextProps {
   setError: Dispatch<SetStateAction<string | null>>;
   companyType: string;
   setCompanyType: Dispatch<SetStateAction<string>>;
+  child: React.ReactNode | null,
+  setChild: Dispatch<SetStateAction<React.ReactNode | null>>
+  navSignup: NavProps | null;
+  setNavSignup: Dispatch<SetStateAction<NavProps | null>>
 }
 
 // const initialState = {
@@ -65,7 +69,11 @@ export const GlobalContext = createContext<ContextProps>({
   error: null,
   setError: () : string | null => null,
   companyType: '',
-  setCompanyType: () :string => ""
+  setCompanyType: () :string => "",
+  child: null,
+  setChild: () : React.ReactNode => null,
+  navSignup: null,
+  setNavSignup: () : NavProps | null => null
 });
 
 export const GlobalContextProvider = ({
@@ -84,6 +92,8 @@ export const GlobalContextProvider = ({
   const [button, setButton ] = useState<button | null>(null)
   const [error, setError ] = useState<string | null>(null);
   const [companyType, setCompanyType] = useState<string>("");
+  const [child, setChild] = useState<React.ReactNode | null>(null);
+  const [ navSignup, setNavSignup] = useState<NavProps | null>(null)
 
 
   return (
@@ -110,7 +120,11 @@ export const GlobalContextProvider = ({
         error, 
         setError,
         companyType,
-        setCompanyType
+        setCompanyType,
+        child, 
+        setChild,
+        navSignup, 
+        setNavSignup
       }}
     >
       {children}

@@ -40,13 +40,16 @@ input:disabled{
   @apply bg-disabledInputBg
 }
 
-
 .container {
   @apply w-[90%] mx-auto
 }
 
 .l-container {
   @apply w-[90%] mx-auto max-w-[1200px]
+}
+
+.signup-container {
+  @apply w-full mx-auto max-w-[880px]
 }
 
 .dash-container {
@@ -172,6 +175,21 @@ input:disabled{
   display: none;
 }
 
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 32px;
+}
+
+.grid-item {
+  text-align: center;
+  grid-column: span 2
+}
+
+.grid-item:nth-child(5) {
+  grid-column: 2 / span 2;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -191,3 +209,4 @@ input:disabled{
     top: 50%
   }
 }
+
