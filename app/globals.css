@@ -57,7 +57,7 @@ input:disabled{
 }
 
 .input-wrap {
-  @apply w-full flex flex-col items-start gap-2 relative !z-0
+  @apply w-full flex flex-col items-start gap-2 relative 
 }
 
 .labels {
@@ -210,3 +210,34 @@ input:disabled{
   }
 }
 
+.infoDropIn {
+  animation: infoDropIn .3s ease-in-out;
+  top: 20px
+}
+
+@keyframes infoDropIn {
+  from {
+    top: -50px;
+    opacity: 0;
+  }
+  to {
+    top: 20px;
+    opacity: 1;
+  }
+}
+
+.line-grow {
+  width: 100%;
+  animation: lineGrow 3s ease-in-out;
+}
+
+
+@keyframes lineGrow {
+  from {
+    width: 0%;
+  }
+
+  to {
+    width: 100%;
+  }
+}

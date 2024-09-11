@@ -16,7 +16,7 @@ import PinInput from "react-pin-input";
 const Page = () => {
   const router = useRouter();
   const [hasAccounts, setHasAccount] = useState(false);
-  const { button, setButton, setData } = useContext(GlobalContext);
+  const { button, setButton, setData, setChild } = useContext(GlobalContext);
   const [hasConnected, setHasConnected] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [formButtonDisabled, setFormButtonDisabled] = useState<boolean>(false);
@@ -55,11 +55,22 @@ const Page = () => {
           "Without PRO subscription this WhatsApp number will be disconnected in 1 month.",
       });
 
+      
       setButton({
         cta: () => {},
         text: "Back to region selection",
       });
     }
+    
+    setChild(
+      <div className="w-full h-full">
+        <Image
+          src={require("../../../assets/images/whatsapp-mural.svg")}
+          alt="meta business mural"
+          className="w-full h-full object-cover"
+        />
+      </div>
+    );
   }, []);
 
   return (
@@ -210,12 +221,27 @@ const Page = () => {
 
       <div className="signup-container">
         <div className="w-full mx-auto flex flex-col gap-2 mb-9">
-          <h1 className="text-textBody font-bold text-[44px] text-center lh-130">
-          Welcome to the <br /> WhatsApp Channel
+          
+          {
+            queryPage === '4' ? (
+              <h1 className="text-textBody font-bold text-[44px] text-center lh-130">
+            Go Pro to keep new number <br /> connected to WhatsApp
           </h1>
-          <p className="text-textSec text-[15px] text-center tracking-[0.2px]">
-            Connect your WhatsApp channel through Facebook and start automating your business today.
+            ) : (
+              <h1 className="text-textBody font-bold text-[44px] text-center lh-130">
+                Welcome to the <br /> WhatsApp Channel
+          </h1>
+            ) 
+          }
+          {
+            queryPage === "4" ? (
+              <p className="text-textSec text-[15px] text-center tracking-[0.2px]">
+            Without PRO subscription this WhatsApp number will be disconnected in 1 month.
           </p>
+            ) : (<p className="text-textSec text-[15px] text-center tracking-[0.2px]">
+              Connect your WhatsApp channel through Facebook and start automating your business today.
+            </p>)
+          }
         </div>
         <div className="w-3/5 mx-auto">
 

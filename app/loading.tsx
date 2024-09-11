@@ -51,7 +51,7 @@ const Loading = () => {
               </div>
 
               <div className='w-[120px] h-[30px]  relative overflow-hidden' >
-                  <p className='swipe-right text-primary2 font-semibold' > {content}</p>
+                  {/* <p className='swipe-right text-primary2 font-semibold' > {content}</p> */}
               </div>
           </div>
       </main>

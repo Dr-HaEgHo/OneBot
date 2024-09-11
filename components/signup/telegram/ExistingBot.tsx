@@ -1,28 +1,27 @@
+'use client'
 import { FilledButton } from "@/components/Button";
 import { InputFade } from "@/components/Input";
+import { GlobalContext } from "@/context/context";
 import Image from "next/image";
-import React from "react";
+import React, { useContext } from "react";
 
 const ExistingBot = ({setConnect}: {setConnect: Function}) => {
+
+  const { infoMsg ,setInfoMsg } = useContext(GlobalContext);
+
+  const handleSetMsg = () => {
+    setInfoMsg('We strongly recommend that you do what we ask you to do. t for thanks')
+  }
+
   return (
-    <div className="w-[60%] mx-auto flex flex-col items-start">
-      <p className="text-textBody text-links lh-150 text-left ">
+    <div className="flex flex-col items-start">
+      {/* <p className="text-textBody text-links lh-150 text-left ">
         Connect existing Telegram bot
-      </p>
-      <div className="w-full rounded-lg p-4 flex items-start gap-2 mt-6 mb-10 bg-noteWarning">
-        <Image
-          src={require("../../../assets/icons/Warning.svg")}
-          alt="warning"
-          className="w-6 h-6"
-        />
-        <p className="text-white text-links lh-150 text-left pr-6 tracking-[0.2px]">
-          We highly recommend you not to use the same token for different
-          services, otherwise the bot will work incorrectly.
-        </p>
-      </div>
+      </p> */}
+      
 
       <p className="text-textBody text-links lh-150 text-left ">
-        This instruction helps you to create a new Telegram bot.
+        This guide will help you create a new Telegram bot.
       </p>
 
       <div className="w-full flex flex-col gap-4 mt-6">
@@ -54,7 +53,7 @@ const ExistingBot = ({setConnect}: {setConnect: Function}) => {
 
         <div className="w-full flex items-center gap-4">
           <Image
-            src={require("../../../assets/icons/two.svg")}
+            src={require("../../../assets/icons/three.svg")}
             alt="point two"
           />
           <p className="text-textBody text-links lh-150 text-left">

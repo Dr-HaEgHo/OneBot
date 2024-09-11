@@ -1,15 +1,17 @@
 'use client'
 import type { Metadata } from 'next'
-import { Rubik } from 'next/font/google'
 import './globals.css'
 import { Provider } from 'react-redux'
 import { store } from '@/store/store'
 import { GlobalContextProvider } from '@/context/context'
+import Info from '@/components/Info'
 
 // export const metadata: Metadata = {
 //   title: 'onebot',
 //   description: 'Learn and get better at industry trading secrets',
 // }
+
+
 
 export default function RootLayout({
   children,
@@ -21,7 +23,10 @@ export default function RootLayout({
       <body>
         <Provider store={store}>
         <GlobalContextProvider >
-          {children}
+          <div className='relative w-full '>
+            <Info />
+            {children}
+          </div>
         </GlobalContextProvider>
         </Provider>
       </body>

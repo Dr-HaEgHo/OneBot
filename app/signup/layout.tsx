@@ -18,7 +18,7 @@ const SignupLayout = ({ children }: { children: React.ReactNode }) => {
             <Navbar />
           </div>
 
-          <div className="container min-h-screen">{children}</div>
+          <div className="container min-h-[90vh] h-full">{children}</div>
 
           {button && (
             <div className="w-full absolute container mx-auto left-[4%] bottom-[8%]">

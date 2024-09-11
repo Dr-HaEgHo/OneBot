@@ -33,6 +33,8 @@ interface ContextProps {
   setData: Dispatch<SetStateAction<ImageData | null>>;
   button: button | null;
   setButton: Dispatch<SetStateAction<button | null>>;
+  rightButton: button | null;
+  setRightButton: Dispatch<SetStateAction<button | null>>;
   error: string | null;
   setError: Dispatch<SetStateAction<string | null>>;
   companyType: string;
@@ -40,7 +42,9 @@ interface ContextProps {
   child: React.ReactNode | null,
   setChild: Dispatch<SetStateAction<React.ReactNode | null>>
   navSignup: NavProps | null;
-  setNavSignup: Dispatch<SetStateAction<NavProps | null>>
+  setNavSignup: Dispatch<SetStateAction<NavProps | null>>;
+  infoMsg: string;
+  setInfoMsg: Dispatch<SetStateAction<string>>
 }
 
 // const initialState = {
@@ -66,6 +70,8 @@ export const GlobalContext = createContext<ContextProps>({
   setData: (): ImageData | null => null,
   button: null,
   setButton : () :button | null => null,
+  rightButton: null,
+  setRightButton : () :button | null => null,
   error: null,
   setError: () : string | null => null,
   companyType: '',
@@ -73,7 +79,9 @@ export const GlobalContext = createContext<ContextProps>({
   child: null,
   setChild: () : React.ReactNode => null,
   navSignup: null,
-  setNavSignup: () : NavProps | null => null
+  setNavSignup: () : NavProps | null => null,
+  infoMsg: '',
+  setInfoMsg: () : string => ''
 });
 
 export const GlobalContextProvider = ({
@@ -90,10 +98,12 @@ export const GlobalContextProvider = ({
   const [openChatNav, setOpenChatNav] = useState<boolean>(true);
   const [data, setData] = useState<ImageData | null>(null);
   const [button, setButton ] = useState<button | null>(null)
+  const [rightButton, setRightButton ] = useState<button | null>(null)
   const [error, setError ] = useState<string | null>(null);
   const [companyType, setCompanyType] = useState<string>("");
   const [child, setChild] = useState<React.ReactNode | null>(null);
-  const [ navSignup, setNavSignup] = useState<NavProps | null>(null)
+  const [ navSignup, setNavSignup] = useState<NavProps | null>(null);
+  const [ infoMsg, setInfoMsg ] = useState<string>('')
 
 
   return (
@@ -117,6 +127,8 @@ export const GlobalContextProvider = ({
         setData,
         button,
         setButton,
+        rightButton,
+        setRightButton,
         error, 
         setError,
         companyType,
@@ -124,7 +136,9 @@ export const GlobalContextProvider = ({
         child, 
         setChild,
         navSignup, 
-        setNavSignup
+        setNavSignup,
+        infoMsg,
+        setInfoMsg,
       }}
     >
       {children}

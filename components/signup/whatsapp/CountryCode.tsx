@@ -34,20 +34,18 @@ const CountryCode:FC<modalProps> = ({open, setOpen}) => {
   // };
 
   return (
-    <div className="w-full flex flex-col items-start">
+    <div className="w-full flex flex-col">
       
 
-      <h3 className="text-head5 text-textBody font-bold ">
-        Select the country code of WhatsApp number
+      <h3 className="text-head5 text-center text-textBody font-bold ">
+      Select the country code for your WhatsApp number.
       </h3>
       <p className="text-textBody text-links lh-150 text-left mt-2">
-        Every Manychat number works internationally. If your country isn't on
-        the list below, you can select another number. We recommend using a USA
-        number.
+        Every ChatBoomer number works internationally. If your country isn’t listed below, you can choose another number. We recommend using a US number.
       </p>
-      <p className="text-textBody text-links lh-150 text-left my-">
-        You can start with the Manychat number to test the WhatsApp integration
-        and then change it to your number later.
+      <p className="text-textBody text-links lh-150 text-center my-6">
+        You can start with the OneBot number to test the WhatsApp integration and
+        then change it to your number later.
       </p>
 
       <DropDownFade

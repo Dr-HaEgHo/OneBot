@@ -5,7 +5,7 @@ import React from "react";
 
 const NewBot = ({setConnect} : {setConnect: Function}) => {
   return (
-    <div className="w-[60%] mx-auto flex flex-col items-start">
+    <div className="w-full flex flex-col items-start">
       <p className="text-textBody text-links lh-150 text-left ">
         This instruction helps you to create a new Telegram bot.
       </p>

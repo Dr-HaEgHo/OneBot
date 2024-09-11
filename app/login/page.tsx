@@ -5,6 +5,8 @@ import { FilledButton, OutlinedButton } from "@/components/Button";
 import SocialCard from "@/components/SocialCard";
 import ImageComponent from "@/components/ImageSlider";
 import { useRouter } from "next/navigation";
+import { useContext, useEffect } from "react";
+import { GlobalContext } from "@/context/context";
 // import { clearSignupSuccess } from '@/store/auth/authSlice'
 
 const cards = [
@@ -53,81 +55,95 @@ const data = {
 
 export default function Signin() {
   const router = useRouter();
+  const { setNavSignup } = useContext(GlobalContext)
+
+  useEffect(() => {
+    setNavSignup({
+      language: "English",
+      text: "GET STARTED FREE",
+      route: '/signup',
+      classes: 'border-appOrange'
+    })
+  }, [])
+
   return (
-    <main className="w-full h-fit lg:h-screen flex items-center ">
-      <div className="w-[44%] h-full hidden bg-appPearLight lg:block overflow-hidden relative pl-36 pr-[70px]">
-        <ImageComponent data={data} />
-      </div>
-
-      <div className="w-full lg:w-[56%] h-full mx-auto bg-white max-lg:scroll max-lg:mb-20 ">
-        <div className="absolute top-0 right-0 flex p-8 items-center gap-8">
-          <div className="flex items-center gap-2">
-            <Image
-              src={require("../../assets/icons/language.svg")}
-              alt="language"
-              className="h-6 w-6"
-              width={1024}
-              height={1024}
-            />
-            <p className="text-textBody text-links">English</p>
-          </div>
-          <OutlinedButton
-            cta={() => router.push("/login")}
-            text="SIGN IN"
-            btnClass="border-appOrange"
-            pClass=""
-          />
+    <main className="w-full h-fit lg:h-[86vh] flex items-center ">
+      <div className="signup-container">
+        <div className="w-full mx-auto flex flex-col gap-2 my-9">
+          <h1 className="text-textBody font-bold text-[44px] text-center lh-130 tracking-[0%]">
+            Welcome back to ChatBoomer!
+          </h1>
+          <p className="text-textSec text-[15px] text-center tracking-[0.2px]">
+            Sign In to ChatBoomer.
+          </p>
         </div>
-
         {/* Cards */}
-        <div className="w-full max-w-[518px] mx-auto h-full flex flex-col gap-4 items-center justify-center relative">
-            <FilledButton
-                cta={() => router.push("/login")}
-                text="Sign In With Facebook"
-                image={require("../../assets/icons/facebookWhite.svg")}
-                btnClass="bg-appBlue hover:bg-appBlueHover"
-                pClass="text-white"
-            />
-            <FilledButton
-                cta={() => router.push("/login")}
-                text="Sign In With Telegram"
-                image={require("../../assets/icons/telegramWhite.svg")}
-                btnClass="bg-teleBlue hover:bg-teleBlueHover"
-                pClass="text-white"
-            />
-            <FilledButton
-                cta={() => router.push("/login")}
-                text="Sign In With Google"
-                image={require("../../assets/icons/googleBtn.svg")}
-                btnClass="border bg-white hover:bg-secBg"
-                pClass="text-textBody"
-            />
-            <FilledButton
-                cta={() => router.push("/login")}
-                text="Sign In With Facebook"
-                image={require("../../assets/icons/Apple.svg")}
-                btnClass="bg-darkBtn hover:bg-darkGreyBtn"
-                pClass="text-white"
-            />
-            <p className="text-textSec text-links text-center mt-8">
-            New to OneBot? {" "}
+        <div className="w-full max-w-[423px] mx-auto h-full flex flex-col gap-4 items-center justify-center relative">
+          <FilledButton
+            cta={() => router.push("/login")}
+            text="Sign In With Facebook"
+            image={require("../../assets/icons/facebookWhite.svg")}
+            btnClass="bg-appBlue hover:bg-appBlueHover"
+            pClass="text-white"
+          />
+          <FilledButton
+            cta={() => router.push("/login")}
+            text="Sign In With Telegram"
+            image={require("../../assets/icons/telegramWhite.svg")}
+            btnClass="bg-teleBlue hover:bg-teleBlueHover"
+            pClass="text-white"
+          />
+          <FilledButton
+            cta={() => router.push("/login")}
+            text="Sign In With Google"
+            image={require("../../assets/icons/googleBtn.svg")}
+            btnClass="border bg-white hover:bg-secBg"
+            pClass="text-textBody"
+          />
+          <FilledButton
+            cta={() => router.push("/login")}
+            text="Sign In With Apple"
+            image={require("../../assets/icons/Apple.svg")}
+            btnClass="bg-darkBtn hover:bg-darkGreyBtn"
+            pClass="text-white"
+          />
+          <FilledButton
+            cta={() => router.push("/login/email")}
+            text="Sign In With Email"
+            image={require("../../assets/icons/Mail.svg")}
+            btnClass="border bg-white hover:bg-secBg"
+            pClass="text-textBody"
+          />
+          <p className="text-textSec text-links text-center mt-8">
+            New to ChatBoomer?{" "}
             <a href="/signup" className="text-appBlue">
-                Sign Up
+              Sign Up
             </a>
-            </p>
+          </p>
 
-
-            <div className='w-full absolute left-1/2 transform -translate-x-1/2 bottom-[10%] '>
-                <ul className='w-full flex items-center justify-center gap-6'>
-                    <li><a href="" className='text-linkMain hover:text-linkHover text-links'>Terms of Service</a></li>
-                    <li><a href="" className='text-linkMain hover:text-linkHover text-links'>Privacy Policy</a></li>
-                </ul>
-            </div>
-
-            
+          <div className="w-full mt-[112px]">
+            <ul className="w-full flex items-center justify-center gap-6">
+              <li>
+                <a
+                  href=""
+                  className="text-linkMain hover:text-linkHover text-links"
+                >
+                  Terms of Service
+                </a>
+              </li>
+              <li>
+                <a
+                  href=""
+                  className="text-linkMain hover:text-linkHover text-links"
+                >
+                  Privacy Policy
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
-
       </div>
     </main>
   );
 }
+ 
