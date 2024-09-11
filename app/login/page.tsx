@@ -9,49 +9,6 @@ import { useContext, useEffect } from "react";
 import { GlobalContext } from "@/context/context";
 // import { clearSignupSuccess } from '@/store/auth/authSlice'
 
-const cards = [
-  {
-    id: 1,
-    text: "Instagram",
-    description:
-      "Supercharge your social media marketing with Instagram Automation.",
-    image: require("../../assets/icons/instagram.svg"),
-    to: "facebookAuth",
-    channel: "instagram",
-  },
-  {
-    id: 2,
-    text: "Facebook Messenger",
-    description:
-      "Create Facebook Messenger automation to keep customers happy.",
-    image: require("../../assets/icons/facebook.svg"),
-    to: "facebookAuth",
-    channel: "facebook",
-  },
-  {
-    id: 3,
-    text: "WhatsApp",
-    description:
-      "Choose the most popular mobile messaging app in the world and reach 2 billion users.",
-    image: require("../../assets/icons/whatsapp.svg"),
-    to: "facebookAuth",
-    channel: "whatsapp",
-  },
-  {
-    id: 4,
-    text: "Telegram",
-    description: "Power up your business with Telegram automation.",
-    image: require("../../assets/icons/telegram.svg"),
-    to: "telegramAuth",
-    channel: "telegram",
-  },
-];
-
-const data = {
-  art: require("../../assets/icons/loginArt.svg"),
-  title: "Welcome back to </br> OneBot!",
-  description: "Sign In to OneBot.",
-};
 
 export default function Signin() {
   const router = useRouter();

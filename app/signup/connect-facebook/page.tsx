@@ -46,7 +46,7 @@ const Page = () => {
         <Congrats
           action={action}
           text="Congratulations, <br /> Your Facebook account is connected!"
-          image={require("../../../assets/icons/facebook.svg")}
+          image={require("../../../assets/icons/facebooklogo.svg")}
         />
       ) : (
         <div className="signup-container">

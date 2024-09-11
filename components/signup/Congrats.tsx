@@ -13,10 +13,10 @@ const Congrats:FC<props> = ({action, image, text}) => {
     <div className="w-full h-full fixed flex flex-col gap-12 items-center justify-center top-0 left-0 z-[99] bg-pryBg">
             <Image
                 src={image}
-                alt="facebook icon"
-                className=""
+                alt="icon"
+                className="w-[66px] h-[66px]"
             />
-            <h3 className="text-head2 text-textBody text-center lh-130 font-bold clash" dangerouslySetInnerHTML={{__html: text}}></h3>
+            <h3 className="text-head2 text-textBody text-center lh-130 font-bold" dangerouslySetInnerHTML={{__html: text}}></h3>
             <FilledButton
                 cta={() => {action()}}
                 text="Great!"
