@@ -1,6 +1,7 @@
 "use client";
 import { FilledButton } from "@/components/Button";
 import Congrats from "@/components/signup/Congrats";
+import TitleHeader from "@/components/TitleHeader";
 import { GlobalContext } from "@/context/context";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -50,14 +51,10 @@ const Page = () => {
         />
       ) : (
         <div className="signup-container">
-            <div className="w-full mx-auto flex flex-col gap-2 mb-9">
-              <h1 className="text-textBody font-bold text-[44px] text-center lh-130">
-                Connect Facebook Page
-              </h1>
-              <p className="text-textSec text-[15px] text-center tracking-[0.2px]">
-                Follow the instruction to create your first Messenger automation.
-              </p>
-            </div>
+            <TitleHeader
+            title="Connect Facebook Page"
+            subtitle="Follow the instruction to create your first Messenger automation."
+          />
             {hasAccounts ? (
               <div className="w-full">
                 <p className="text-textBody w-full mx-auto font-normal text-links lh-150 text-left mb-4">

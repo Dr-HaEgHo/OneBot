@@ -7,6 +7,7 @@ import ImageComponent from "@/components/ImageSlider";
 import { useRouter } from "next/navigation";
 import { useContext, useEffect } from "react";
 import { GlobalContext } from "@/context/context";
+import TitleHeader from "@/components/TitleHeader";
 // import { clearSignupSuccess } from '@/store/auth/authSlice'
 
 const cards = [
@@ -75,10 +76,7 @@ export default function Signup() {
     <main className="w-full flex items-center">
 
       <div className="w-full h-full mx-auto  max-lg:scroll max-lg:mb-20 relative">
-        <div className="w-full mx-auto flex flex-col gap-2 mb-9">
-          <h1 className="text-textBody font-bold text-[44px] text-center lh-130">Which channel would you <br /> like to begin with?</h1>
-          <p className="text-textSec text-[15px] text-center tracking-[0.2px]">No need to worry; you can easily add more channels later.</p>
-        </div>
+          <TitleHeader title="Which channel would you <br /> like to begin with?" subtitle="No need to worry; you can easily add more channels later." />
         {/* Cards */}
         <div className="w-full grid-container max-w-[880px] mx-auto ">
           {cards?.map((item, idx) => (

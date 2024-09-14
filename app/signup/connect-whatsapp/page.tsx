@@ -7,6 +7,7 @@ import CountryCode from "@/components/signup/whatsapp/CountryCode";
 import GoPro from "@/components/signup/whatsapp/GoPro";
 import GuideWA from "@/components/signup/whatsapp/GuideWA";
 import LinkInfo from "@/components/signup/whatsapp/LinkInfo";
+import TitleHeader from "@/components/TitleHeader";
 import { GlobalContext } from "@/context/context";
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -47,15 +48,6 @@ const Page = () => {
 
   useEffect(() => {
     if (queryPage === '4') {
-      setData({
-        art: require("../../../assets/icons/connTelegram.svg"),
-        title:
-          "Go Pro to keep </br> new number </br> connected to  </br> Whatsapp",
-        description:
-          "Without PRO subscription this WhatsApp number will be disconnected in 1 month.",
-      });
-
-      
       setButton({
         cta: () => {},
         text: "Back to region selection",
@@ -221,27 +213,10 @@ const Page = () => {
 
       <div className="signup-container">
         <div className="w-full mx-auto flex flex-col gap-2 mb-9">
-          
-          {
-            queryPage === '4' ? (
-              <h1 className="text-textBody font-bold text-[44px] text-center lh-130">
-            Go Pro to keep new number <br /> connected to WhatsApp
-          </h1>
-            ) : (
-              <h1 className="text-textBody font-bold text-[44px] text-center lh-130">
-                Welcome to the <br /> WhatsApp Channel
-          </h1>
-            ) 
-          }
-          {
-            queryPage === "4" ? (
-              <p className="text-textSec text-[15px] text-center tracking-[0.2px]">
-            Without PRO subscription this WhatsApp number will be disconnected in 1 month.
-          </p>
-            ) : (<p className="text-textSec text-[15px] text-center tracking-[0.2px]">
-              Connect your WhatsApp channel through Facebook and start automating your business today.
-            </p>)
-          }
+          <TitleHeader
+            title={ queryPage === "4" ? 'Go Pro to keep new number <br /> connected to WhatsApp' : 'Welcome to the <br /> WhatsApp Channel' }
+            subtitle={ queryPage === "4" ? 'Without PRO subscription this WhatsApp number will be disconnected in 1 month.' : 'Connect your WhatsApp channel through Facebook and start automating your business today.' }
+          />
         </div>
         <div className="w-3/5 mx-auto">
 

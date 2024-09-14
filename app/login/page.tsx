@@ -7,6 +7,7 @@ import ImageComponent from "@/components/ImageSlider";
 import { useRouter } from "next/navigation";
 import { useContext, useEffect } from "react";
 import { GlobalContext } from "@/context/context";
+import TitleHeader from "@/components/TitleHeader";
 // import { clearSignupSuccess } from '@/store/auth/authSlice'
 
 
@@ -26,14 +27,10 @@ export default function Signin() {
   return (
     <main className="w-full h-fit lg:h-[86vh] flex items-center ">
       <div className="signup-container">
-        <div className="w-full mx-auto flex flex-col gap-2 my-9">
-          <h1 className="text-textBody font-bold text-[44px] text-center lh-130 tracking-[0%]">
-            Welcome back to ChatBoomer!
-          </h1>
-          <p className="text-textSec text-[15px] text-center tracking-[0.2px]">
-            Sign In to ChatBoomer.
-          </p>
-        </div>
+        <TitleHeader
+            title="Welcome back to ChatBoomer!"
+            subtitle="Sign In to ChatBoomer."
+          />
         {/* Cards */}
         <div className="w-full max-w-[423px] mx-auto h-full flex flex-col gap-4 items-center justify-center relative">
           <FilledButton

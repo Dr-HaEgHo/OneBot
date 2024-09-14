@@ -9,6 +9,7 @@ import CountryCode from "@/components/signup/whatsapp/CountryCode";
 import GoPro from "@/components/signup/whatsapp/GoPro";
 import GuideWA from "@/components/signup/whatsapp/GuideWA";
 import LinkInfo from "@/components/signup/whatsapp/LinkInfo";
+import TitleHeader from "@/components/TitleHeader";
 import { GlobalContext } from "@/context/context";
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -61,23 +62,10 @@ const Page = () => {
       )}
 
       <div className="signup-container h-[70vh] flex items-center flex-col justify-center">
-        <div className="w-full mx-auto flex flex-col gap-2 my-9">
-          {
-            queryPage === "1" ? (<h1 className="text-textBody font-bold text-[44px] text-center lh-130 tracking-[0%]">
-              Let’s connect Telegram bot <br /> to ChatBoomer
-            </h1>) : (
-              <h1 className="text-textBody font-bold text-[44px] text-center lh-130 tracking-[0%]">
-              Choose your favorite <br /> bot and make it shine!
-            </h1>
-            ) 
-          }
-          <p className="text-textSec text-[15px] text-center tracking-[0.2px]">
-            { queryPage === "1" ?
-            'You can either create a new bot or connect an existing one.'
-            : 'Simply follow the step-by-step instructions to connect an existing Telegram bot.'
-             } 
-          </p>
-        </div>
+        <TitleHeader
+            title={ queryPage === "1" ? 'Let’s connect Telegram bot <br /> to ChatBoomer' : 'Choose your favorite <br /> bot and make it shine!' }
+            subtitle={ queryPage === "1" ? 'You can either create a new bot or connect an existing one.' : 'Simply follow the step-by-step instructions to connect an existing Telegram bot.' }
+          />
         <div className="w-[48%] min-w-[414px] mx-auto">
           {queryPage === "1" && (
             <div className="flex flex-col items-center">

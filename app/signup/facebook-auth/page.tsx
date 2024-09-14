@@ -12,13 +12,13 @@ const Page = () => {
 
 
     useEffect(() => {
-        setChild(<div className="w-full h-full">
-            <Image 
-                src={require('../../../assets/images/meta-business.svg')}
-                alt="meta business mural"
-                className="w-full h-full object-cover"
-            />
-        </div>)
+        // setChild(<div className="w-full h-full">
+        //     <Image 
+        //         src={require('../../../assets/images/meta-business.svg')}
+        //         alt="meta business mural"
+        //         className="w-full h-full object-cover"
+        //     />
+        // </div>)
         setNavSignup({
             language: "English",
             text: 'SIGN IN',

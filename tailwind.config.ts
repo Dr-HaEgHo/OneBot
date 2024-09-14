@@ -27,6 +27,10 @@ const config: Config = {
         teleBlueHover: '#0073ad',
         appBlueHover: '#0071db',
         appOrangeHover: '#dc3d3d',
+        whatsapp: "#25D366",
+        whatsappHover: "#1eb555",
+        insta: "#FD1D1D",
+        instaHover: "#dd2727",
 
 
         // SECONDARY  COLORS

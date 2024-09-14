@@ -1,6 +1,7 @@
 "use client";
 import { FilledButton } from "@/components/Button";
 import Congrats from "@/components/signup/Congrats";
+import TitleHeader from "@/components/TitleHeader";
 import { GlobalContext } from "@/context/context";
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -64,14 +65,10 @@ const Page = () => {
       )}
 
       <div className="signup-container ">
-        <div className="w-full mx-auto flex flex-col gap-2 mb-9">
-          <h1 className="text-textBody font-bold text-[44px] text-center lh-130">
-            Connect Instagram Account
-          </h1>
-          <p className="text-textSec text-[15px] text-center tracking-[0.2px]">
-            Follow the instructions to connect your Instagram account.
-          </p>
-        </div>
+        <TitleHeader
+            title="Connect Instagram Account"
+            subtitle="Follow the instructions to connect your Instagram account."
+          />
 
         <div className="w-full">
           {queryPage === "1" && (

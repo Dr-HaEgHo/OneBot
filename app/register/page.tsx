@@ -1,6 +1,7 @@
 "use client";
 import { FilledButton } from "@/components/Button";
 import { DropDownFade, TextArea } from "@/components/Input";
+import TitleHeader from "@/components/TitleHeader";
 import { GlobalContext } from "@/context/context";
 import { useRouter } from "next/navigation";
 import React, { ChangeEvent, useContext, useEffect, useState } from "react";
@@ -41,14 +42,10 @@ const Page = () => {
   return (
     <div className="w-full h-[80vh] flex flex-col items-center justify-center">
       <div className="signup-container ">
-      <div className="w-full mx-auto flex flex-col gap-2 my-9">
-          <h1 className="text-textBody font-bold text-[44px] text-center lh-130 tracking-[0%]">
-          Tell us a little about yourself
-          </h1>
-          <p className="text-textSec text-[15px] text-center tracking-[0.2px]">
-          Help us personalize your ChatBoomer experience.
-          </p>
-        </div>
+        <TitleHeader
+            title="Tell us a little about yourself"
+            subtitle="Help us personalize your ChatBoomer experience."
+          />
         <div className="w-[59%] mx-auto">
           <div className="w-full flex mt-12 z-50">
             <DropDownFade

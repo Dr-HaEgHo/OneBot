@@ -1,6 +1,7 @@
 "use client";
 import { BoundlessIconButton, FilledButton } from "@/components/Button";
 import { InputFade, PasswordInputFade } from "@/components/Input";
+import TitleHeader from "@/components/TitleHeader";
 import { GlobalContext } from "@/context/context";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -26,11 +27,7 @@ const Page = () => {
   return (
     <main className="w-full flex items-center">
       <div className="w-full h-full lg:h-[72vh] mx-auto flex flex-col items-center justify-center max-lg:scroll max-lg:mb-20 relative">
-        <div className="w-full mx-auto flex flex-col gap-2 my-9">
-          <h1 className="text-textBody font-bold text-[44px] text-center lh-130 tracking-[0%]">
-            Sign In to ChatBoomer
-          </h1>
-        </div>
+        <TitleHeader title="Sign In to ChatBoomer"/>
         {/* Cards */}
         <div className="w-full signup-container mx-auto ">
           <div className="w-[59%] max-w-[518px] mx-auto">

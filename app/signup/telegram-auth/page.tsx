@@ -5,6 +5,7 @@ import Facebook from '@/components/signup/Facebook';
 import Instagram from '@/components/signup/Instagram';
 import Telegram from '@/components/signup/Telegram';
 import Whatsapp from '@/components/signup/Whatsapp';
+import TitleHeader from '@/components/TitleHeader';
 import { GlobalContext } from '@/context/context';
 import Image from 'next/image';
 import { useRouter, useSearchParams } from 'next/navigation'
@@ -55,14 +56,10 @@ const Page = () => {
     <main className="w-full flex items-center ">
 
       <div className="signup-container h-[80vh] flex flex-col justify-center items-center">
-      <div className="w-full mx-auto flex flex-col gap-2 my-9">
-        <h1 className="text-textBody font-bold text-[44px] text-center lh-130 tracking-[0%]">
-          Sign Up to ChatBoomer
-        </h1>
-        <p className="text-textSec text-[15px] text-center tracking-[0.2px]">
-          Sign Up to create an account
-        </p>
-      </div>
+      <TitleHeader
+        title='Sign Up to ChatBoomer'
+        subtitle='Sign Up to create an account'
+      />
 
         {/* Cards */}
         <div className="mx-auto w-[59%] flex flex-col gap-8 items-center justify-center">
