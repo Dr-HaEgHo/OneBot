@@ -61,7 +61,7 @@ const cards = [
 export default function Signup() {
 
     const router = useRouter()
-    const {setNavSignup} = useContext(GlobalContext);
+    const {setNavSignup, setChild} = useContext(GlobalContext);
 
     useEffect(() => {
       setNavSignup({
@@ -70,6 +70,9 @@ export default function Signup() {
         route: "/login",
         classes: "border-appOrange"
       })
+      setChild(
+        null
+      );
     },[])
 
   return (

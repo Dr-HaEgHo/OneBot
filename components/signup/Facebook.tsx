@@ -39,7 +39,7 @@ const Facebook = () => {
 
     switch(channel){
       case "instagram" : channelData = {
-        channel: 'FaceBook',
+        channel: 'facebook',
         // color: 'bg-insta hover:bg-instaHover',
         color: 'bg-appBlue hover:bg-appBlueHover',
         image: require('../../assets/icons/facebookWhite.svg'),
@@ -47,7 +47,7 @@ const Facebook = () => {
       } ;
       break;
       case "whatsapp" : channelData = {
-        channel: 'Facebook',
+        channel: 'facebook',
         // color: 'bg-whatsapp hover:bg-whatsappHover',
         color: 'bg-appBlue hover:bg-appBlueHover',
         image: require('../../assets/icons/facebookWhite.svg'),
@@ -55,14 +55,14 @@ const Facebook = () => {
       } ; ;
       break;
       case "facebook" : channelData = {
-        channel: 'Facebook',
+        channel: 'facebook',
         color: 'bg-appBlue hover:bg-appBlueHover',
         image: require('../../assets/icons/facebookWhite.svg'),
         mural: require('../../assets/images/fb-messenger.svg')
       } ; ;
       break;
       default : channelData = {
-        channel: 'Facebook',
+        channel: 'facebook',
         color: 'bg-appBlue hover:bg-appBlueHover',
         image: require('../../assets/icons/facebookWhite.svg'),
         mural: require('../../assets/images/fb-messenger.svg')
