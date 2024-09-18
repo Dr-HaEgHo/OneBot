@@ -35,7 +35,7 @@ export const PasswordInputFade: FC<pwInputProps> = (props) => {
                 <input id={props.id} className={`input ${props.iClass}`} value={props.value} type={isOpen === true ? "text" : "password"} onChange={props.handleChange} onBlur={props.blur} disabled={props?.isDisabled} placeholder={props.placeholder && props.placeholder} />
                 <div onClick={handleClick} className='absolute cursor-pointer right-[10px] top-1/2 transform -translate-y-1/2 flex items-center justify-center text-icons'>
                     {
-                        isOpen === true ? (<EyeSlash variant="Bold" size="20" />) : (<Eye variant="Bold" size="20" />)
+                        isOpen === true ? (<EyeSlash  size="20" color='#232323' />) : (<Eye size="20" color='#232323' />)
                     }
                 </div>
             </div>

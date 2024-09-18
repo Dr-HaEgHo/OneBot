@@ -73,7 +73,7 @@ input:disabled{
 }
 
 .button-outline{
-  @apply transition duration-200 border-[2px] py-[18px] px-[26px] rounded-full
+  @apply transition duration-200 border-[2px] py-[8px] px-[26px] rounded-full
 }
 
 .button-filled{
@@ -240,4 +240,8 @@ input:disabled{
   to {
     width: 100%;
   }
+}
+
+.igbg {
+  background-image: url(../assets/icons/igButton.svg);
 }

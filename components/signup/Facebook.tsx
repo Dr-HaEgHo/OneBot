@@ -43,7 +43,7 @@ const Facebook = () => {
         // color: 'bg-insta hover:bg-instaHover',
         color: 'bg-appBlue hover:bg-appBlueHover',
         image: require('../../assets/icons/facebookWhite.svg'),
-        mural: require('../../assets/images/i-gram.svg'),
+        mural: require('../../assets/images/insta-mural.svg'),
       } ;
       break;
       case "whatsapp" : channelData = {
@@ -51,21 +51,21 @@ const Facebook = () => {
         // color: 'bg-whatsapp hover:bg-whatsappHover',
         color: 'bg-appBlue hover:bg-appBlueHover',
         image: require('../../assets/icons/facebookWhite.svg'),
-        mural: require('../../assets/images/whatsapp-mural.svg')
+        mural: require('../../assets/images/wa-mural.svg')
       } ; ;
       break;
       case "facebook" : channelData = {
         channel: 'facebook',
         color: 'bg-appBlue hover:bg-appBlueHover',
         image: require('../../assets/icons/facebookWhite.svg'),
-        mural: require('../../assets/images/fb-messenger.svg')
+        mural: require('../../assets/images/meta-mural.svg')
       } ; ;
       break;
       default : channelData = {
         channel: 'facebook',
         color: 'bg-appBlue hover:bg-appBlueHover',
         image: require('../../assets/icons/facebookWhite.svg'),
-        mural: require('../../assets/images/fb-messenger.svg')
+        mural: require('../../assets/images/meta-mural.svg')
       } ;
    }
 

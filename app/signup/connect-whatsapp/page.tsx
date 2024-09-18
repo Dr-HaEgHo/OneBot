@@ -57,7 +57,7 @@ const Page = () => {
     setChild(
       <div className="w-full h-full">
         <Image
-          src={require("../../../assets/images/whatsapp-mural.svg")}
+          src={require("../../../assets/images/wa-mural.svg")}
           alt="meta business mural"
           className="w-full h-full object-cover"
         />

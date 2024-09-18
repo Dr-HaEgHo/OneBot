@@ -3,6 +3,8 @@ import { BoundlessIconButton, FilledButton } from "@/components/Button";
 import { InputFade, PasswordInputFade } from "@/components/Input";
 import TitleHeader from "@/components/TitleHeader";
 import { GlobalContext } from "@/context/context";
+import { loginSchema } from "@/schemas";
+import { useFormik } from "formik";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React, { useContext, useEffect, useState } from "react";
@@ -13,7 +15,37 @@ const Page = () => {
 
   const { setNavSignup } = useContext(GlobalContext);
   const [isTerms, setIsTerms] = useState<boolean>(false);
+  const [errorPH, setErrorPH] = useState<string>("");
   const [isSubscribed, setIsSubscribed] = useState<boolean>(false);
+  const [formButtonDisabled, setFormButtonDisabled] = useState<boolean>(false);
+
+
+  const onSubmit = () => {
+  };
+
+  const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
+    useFormik({
+      initialValues: {
+        email: "",
+        password: "",
+      },
+      validationSchema: loginSchema,
+      onSubmit,
+    });
+
+    useEffect(() => {
+      if (
+        values.email !== "" &&
+        values.password !== "" &&
+        !errors.email &&
+        !errors.password
+      ) {
+        setFormButtonDisabled(true);
+      } else {
+        setFormButtonDisabled(false);
+      }
+  
+    }, [values, errors]);
 
   useEffect(() => {
     setNavSignup({
@@ -41,8 +73,10 @@ const Page = () => {
               />
          
               <PasswordInputFade
-                id=""
-                value={""}
+                id="password"
+                value={values.password}
+                handleChange={handleChange}
+                blur={handleBlur}
                 label="Password"
                 placeholder="Enter password"
                 lClass="text-base text-textBody"
@@ -50,10 +84,10 @@ const Page = () => {
               />
 
               <div className="w-full flex items-center gap-4">
-                <div onClick={() => setIsTerms(!isTerms)}>
+                <div className="cursor-pointer" onClick={() => setIsTerms(!isTerms)}>
                   {isTerms ? (
                     <Image
-                      src={require("../../../assets/icons/unchecked.svg")}
+                      src={require("../../../assets/icons/check.svg")}
                       alt="unchecked"
                       className="w-5 h-5 object-cover"
                     />
@@ -61,7 +95,7 @@ const Page = () => {
                     <Image
                       src={require("../../../assets/icons/unchecked.svg")}
                       alt="unchecked"
-                      className="w-[18px] h-[18px] object-cover"
+                      className="w-5 h-5 object-cover"
                     />
                   )}
                 </div>

@@ -5,7 +5,7 @@ import React, { FC } from 'react'
 
 const SocialCard: FC<socialType> = ({data, btnClass}) => {
   return (
-    <Link href={`/${data.to}?channel=${data.channel}`} className='w-full grid-item'>
+    <Link href={`/${data.to}${data.channel && `channel=${data.channel}`}`} className='w-full grid-item'>
         <button className={`${btnClass} flex items-center gap-4 py-[38px] px-9 w-full rounded-md appShadow border-2 border-secBorder`}>
             <Image
                 src={data.image}

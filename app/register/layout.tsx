@@ -13,7 +13,7 @@ const RegisterLayout = ({ children }: { children: React.ReactNode }) => {
     setChild(
       <div className="w-full h-full">
         <Image
-          src={require("../../assets/images/Journey.svg")}
+          src={require("../../assets/images/journey-mural.svg")}
           alt="meta business mural"
           className="w-full h-full object-cover"
         />
@@ -29,10 +29,10 @@ const RegisterLayout = ({ children }: { children: React.ReactNode }) => {
             <Navbar />
           </div>
 
-          <div className="container min-h-[90vh] h-full">{children}</div>
+          <div className="container min-h-[82vh] h-full">{children}</div>
 
           {button && (
-            <div className="w-fit absolute container mx-auto left-[4%] bottom-[8%]">
+            <div className="w-fit absolute container mx-auto left-[4%] bottom-[1%]">
               <BoundlessIconButton
                 cta={button?.cta}
                 text={button?.text}
@@ -44,7 +44,7 @@ const RegisterLayout = ({ children }: { children: React.ReactNode }) => {
 
 
           {rightButton && (
-            <div className="w-fit bg-yellow-400 absolute mx-auto right-[4%] bottom-[8%]">
+            <div className="w-fit bg-yellow-400 absolute mx-auto right-[4%] bottom-[0%]">
               <FilledButton
                 cta={rightButton?.cta}
                 text={rightButton?.text as string}

@@ -1,7 +1,7 @@
 "use client";
 // import ImageSlider from '@/components/ImageSlider'
 import Image from "next/image";
-import { OutlinedButton } from "@/components/Button";
+import { FilledButton, OutlinedButton } from "@/components/Button";
 import SocialCard from "@/components/SocialCard";
 import ImageComponent from "@/components/ImageSlider";
 import { useRouter } from "next/navigation";
@@ -54,7 +54,7 @@ const cards = [
       "Gain more control over your account by signing up with either your personal or company email.",
     image: require("../../assets/icons/email.svg"),
     to: 'signup/email',
-    channel: "telegram",
+    channel: "",
   },
 ];
 
@@ -79,12 +79,64 @@ export default function Signup() {
     <main className="w-full flex items-center">
 
       <div className="w-full h-full mx-auto  max-lg:scroll max-lg:mb-20 relative">
-          <TitleHeader title="Which channel would you <br /> like to begin with?" subtitle="No need to worry; you can easily add more channels later." />
+        <TitleHeader title="Which channel would you <br /> like to begin with?" subtitle="No need to worry; you can easily add more channels later."/>
         {/* Cards */}
-        <div className="w-full grid-container max-w-[880px] mx-auto ">
-          {cards?.map((item, idx) => (
-            <SocialCard key={idx} data={item}/>
-          ))}
+        <div className="w-full max-w-[423px] mx-auto h-full flex flex-col gap-4 items-center justify-center relative">
+          <FilledButton
+            cta={() => router.push("/signup/facebook-auth?channel=facebook")}
+            text="Sign up For Facebook"
+            image={require("../../assets/icons/facebookWhite.svg")}
+            btnClass="bg-appBlue hover:bg-appBlueHover"
+            pClass="text-white"
+          />
+          <FilledButton
+            cta={() => router.push("/signup/facebook-auth?channel=whatsapp")}
+            text="Sign up For WhatsApp"
+            image={require("../../assets/icons/wa-white.svg")}
+            btnClass="bg-whatsapp hover:bg-whatsappHover"
+            pClass="text-white"
+          />
+          <FilledButton
+            cta={() => router.push("/signup/facebook-auth?channel=instagram")}
+            text="Sign Up For Instagram"
+            image={require("../../assets/icons/insta-white.svg")}
+            btnClass="igbg"
+            pClass="text-white"
+          />
+          <FilledButton
+            cta={() => router.push("/signup/telegram-auth")}
+            text="Sign Up For Telegram"
+            image={require("../../assets/icons/telegramWhite.svg")}
+            btnClass="bg-teleBlue hover:bg-teleBlueHover"
+            pClass="text-white"
+          />
+          <FilledButton
+            cta={() => router.push("/signup/email")}
+            text="Sign Up With Email"
+            image={require("../../assets/icons/Mail.svg")}
+            btnClass="border bg-white hover:bg-secBg"
+            pClass="text-textBody"
+          />
+          <FilledButton
+            cta={() => router.push("/signup")}
+            text="Sign Up With Google"
+            image={require("../../assets/icons/googleBtn.svg")}
+            btnClass="border bg-white hover:bg-secBg"
+            pClass="text-textBody"
+          />
+          <FilledButton
+            cta={() => router.push("/signup")}
+            text="Sign Up With Apple"
+            image={require("../../assets/icons/Apple.svg")}
+            btnClass="bg-darkBtn hover:bg-darkGreyBtn"
+            pClass="text-white"
+          />
+          <p className="text-textSec text-links text-center mt-8">
+            Already in ChatBoomer?{" "}
+            <a href="/login" className="text-appBlue">
+              Sign In
+            </a>
+          </p>
         </div>
       </div>
     </main>

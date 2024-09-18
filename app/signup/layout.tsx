@@ -18,10 +18,10 @@ const SignupLayout = ({ children }: { children: React.ReactNode }) => {
             <Navbar />
           </div>
 
-          <div className="container min-h-[90vh] h-full">{children}</div>
+          <div className="container min-h-[80vh] h-full">{children}</div>
 
           {button && (
-            <div className="w-full absolute container mx-auto left-[4%] bottom-[8%]">
+            <div className="w-full absolute container mx-auto left-[4%] bottom-[0%]">
               <BoundlessIconButton
                 cta={button?.cta}
                 text={button?.text}

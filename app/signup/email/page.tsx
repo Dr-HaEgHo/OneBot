@@ -3,13 +3,67 @@ import { FilledButton } from "@/components/Button";
 import { InputFade, PasswordInputFade } from "@/components/Input";
 import TitleHeader from "@/components/TitleHeader";
 import { GlobalContext } from "@/context/context";
+import { profileSchema, signupSchema } from "@/schemas";
+import { useFormik } from "formik";
 import Image from "next/image";
 import React, { useContext, useEffect, useState } from "react";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 
 const Page = () => {
   const { setNavSignup } = useContext(GlobalContext);
   const [isTerms, setIsTerms] = useState<boolean>(false);
+  const [phone, setPhone] = useState<string>("");
+  const [errorPH, setErrorPH] = useState<string>("");
   const [isSubscribed, setIsSubscribed] = useState<boolean>(false);
+  const [formButtonDisabled, setFormButtonDisabled] = useState<boolean>(false);
+
+
+  const onSubmit = () => {
+  };
+
+  const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
+    useFormik({
+      initialValues: {
+        firstname: "",
+        lastname: "",
+        email: "",
+        password: "",
+        confirmPassword: ""
+      },
+      validationSchema: signupSchema,
+      onSubmit,
+    });
+
+    useEffect(() => {
+      if (
+        values.firstname !== "" &&
+        values.lastname !== "" &&
+        values.email !== "" &&
+        phone !== "" &&
+        !errors.firstname &&
+        !errors.lastname &&
+        errorPH === "" &&
+        !errors.email 
+      ) {
+        setFormButtonDisabled(true);
+      } else {
+        setFormButtonDisabled(false);
+      }
+  
+      if (phone === "") {
+        setErrorPH("This field is required");
+      } else if (phone.length < 13) {
+        setErrorPH("Invalid: phone number too short");
+      } else if (phone.length > 14) {
+        setErrorPH("Invalid: phone number too long");
+      } else {
+        setErrorPH("");
+      }
+  
+      console.log(phone);
+      console.log(errorPH);
+    }, [values, errors, phone, errorPH]);
 
   useEffect(() => {
     setNavSignup({
@@ -55,24 +109,49 @@ const Page = () => {
                   iClass="!text-[15px] textInput"
                 />
               </div>
-              <InputFade
-                label="Mobile Number"
-                placeholder="00 000 0000"
-                type="number"
-                lClass="text-base text-textBody"
-                iClass="!text-[15px] textInput"
-              />
+              <div className="w-full flex flex-col input-wrap !p-0">
+              <label className="labelsFade">Mobile Number</label>
+                <PhoneInput
+                  country={"ng"}
+                  placeholder="Enter phone number"
+                  value=""
+                  // onChange={}
+                  searchStyle={{
+                    width: "100%",
+                    display: "flex",
+                    gap:"14px"
+                  }}
+                  inputStyle={{
+                    width: "100%",
+                    padding: "10px 70px",
+                    border: '1px #eaeaea solid',
+                    background: 'none',
+                    fontSize: "15px"
+                  }}
+                  buttonStyle={{
+                    border: '1px #dfdddd solid',
+                    background: "none",
+                    padding: '10px '
+                  }}
+                />
+              </div>
               <PasswordInputFade
-                id=""
-                value={""}
+                id="password"
+                value={values.password}
+                touched={touched.password}
+                handleChange={handleChange}
+                blur={handleBlur}
                 label="Create a password"
                 placeholder="Enter password"
                 lClass="text-base text-textBody"
                 iClass="!text-[15px] textInput"
               />
               <PasswordInputFade
-                id=""
-                value={""}
+                id="confirmPassword"
+                value={values.confirmPassword}
+                touched={touched.confirmPassword}
+                handleChange={handleChange}
+                blur={handleBlur}
                 label="Confirm password"
                 placeholder="Confirm password"
                 lClass="text-base text-textBody"
@@ -83,7 +162,7 @@ const Page = () => {
                 <div onClick={() => setIsTerms(!isTerms)}>
                   {isTerms ? (
                     <Image
-                      src={require("../../../assets/icons/unchecked.svg")}
+                      src={require("../../../assets/icons/check.svg")}
                       alt="unchecked"
                       className="w-5 h-5 object-cover"
                     />
@@ -91,7 +170,7 @@ const Page = () => {
                     <Image
                       src={require("../../../assets/icons/unchecked.svg")}
                       alt="unchecked"
-                      className="w-[18px] h-[18px] object-cover"
+                      className="w-5 h-5 object-cover"
                     />
                   )}
                 </div>
@@ -114,10 +193,10 @@ const Page = () => {
               </div>
 
               <div className="w-full flex items-center gap-4">
-                <div onClick={() => setIsTerms(!isTerms)}>
-                  {isTerms ? (
+                <div onClick={() => setIsSubscribed(!isSubscribed)}>
+                  {isSubscribed ? (
                     <Image
-                      src={require("../../../assets/icons/unchecked.svg")}
+                      src={require("../../../assets/icons/check.svg")}
                       alt="unchecked"
                       className="w-5 h-5 object-cover"
                     />
@@ -125,7 +204,7 @@ const Page = () => {
                     <Image
                       src={require("../../../assets/icons/unchecked.svg")}
                       alt="unchecked"
-                      className="w-[18px] h-[18px] object-cover"
+                      className="w-5 h-5 object-cover"
                     />
                   )}
                 </div>
