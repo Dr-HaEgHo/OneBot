@@ -243,5 +243,5 @@ input:disabled{
 }
 
 .igbg {
-  background-image: url(../assets/icons/igButton.svg);
+  background: url(../assets/icons/igButton.svg);
 }

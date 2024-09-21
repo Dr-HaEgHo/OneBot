@@ -96,13 +96,20 @@ export default function Signup() {
             btnClass="bg-whatsapp hover:bg-whatsappHover"
             pClass="text-white"
           />
-          <FilledButton
-            cta={() => router.push("/signup/facebook-auth?channel=instagram")}
-            text="Sign Up For Instagram"
-            image={require("../../assets/icons/insta-white.svg")}
-            btnClass="igbg"
-            pClass="text-white"
-          />
+          <div className="w-full relative">
+            <Image
+              src={require('../../assets/icons/igButton.svg')}
+              alt="instagram button background color"
+              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -z-[1]"
+            />
+            <FilledButton
+                cta={() => router.push("/signup/facebook-auth?channel=instagram")}
+                text="Sign Up For Instagram"
+                image={require("../../assets/icons/insta-white.svg")}
+                btnClass="z-10"
+                pClass="text-white"
+              />
+          </div>
           <FilledButton
             cta={() => router.push("/signup/telegram-auth")}
             text="Sign Up For Telegram"
