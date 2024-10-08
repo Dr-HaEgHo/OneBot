@@ -8,7 +8,7 @@ import React, { FC } from 'react'
 export const OutlinedButton: FC<button> = ({cta, text, pClass, btnClass}) => {
   return (
     <button onClick={cta} className={`button-outline ${btnClass}`}>
-        <p className={`text-textBody ${pClass}`}>{text}</p>
+        <p className={`text-textBody !text-[13px] ${pClass}`}>{text}</p>
     </button>
   )
 }

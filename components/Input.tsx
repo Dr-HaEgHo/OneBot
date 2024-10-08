@@ -32,10 +32,18 @@ export const PasswordInputFade: FC<pwInputProps> = (props) => {
         <div className='input-wrap' >
             <label className={`labels ${props.lClass}`}>{props.label && props.label}</label>
             <div className={`password-input`} >
-                <input id={props.id} className={`input ${props.iClass}`} value={props.value} type={isOpen === true ? "text" : "password"} onChange={props.handleChange} onBlur={props.blur} disabled={props?.isDisabled} placeholder={props.placeholder && props.placeholder} />
+                <input id={props.id} className={`input !pr-[36px] ${props.iClass}`} value={props.value} type={isOpen === true ? "text" : "password"} onChange={props.handleChange} onBlur={props.blur} disabled={props?.isDisabled} placeholder={props.placeholder && props.placeholder} />
                 <div onClick={handleClick} className='absolute cursor-pointer right-[10px] top-1/2 transform -translate-y-1/2 flex items-center justify-center text-icons'>
                     {
-                        isOpen === true ? (<EyeSlash  size="20" color='#232323' />) : (<Eye size="20" color='#232323' />)
+                        isOpen === true ? (
+                        <Image 
+                            src={require('@/assets/icons/eye-crossed.svg')}
+                            alt='make invisible'
+                        />
+                    ) : (<Image 
+                        src={require('@/assets/icons/eye.svg')}
+                        alt='make visible'
+                    />)
                     }
                 </div>
             </div>

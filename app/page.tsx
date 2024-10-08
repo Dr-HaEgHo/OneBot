@@ -1,4 +1,11 @@
+import { Metadata } from "next";
 import Image from "next/image";
+
+
+export const metadata: Metadata = {
+  title: 'ChatBoomer | Home',
+  description: 'Learn and get better at industry trading secrets',
+}
 
 export default function Home() {
   return (

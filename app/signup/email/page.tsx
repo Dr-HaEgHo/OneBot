@@ -3,7 +3,7 @@ import { FilledButton } from "@/components/Button";
 import { InputFade, PasswordInputFade } from "@/components/Input";
 import TitleHeader from "@/components/TitleHeader";
 import { GlobalContext } from "@/context/context";
-import { profileSchema, signupSchema } from "@/schemas";
+import { signupSchema } from "@/schemas";
 import { useFormik } from "formik";
 import Image from "next/image";
 import React, { useContext, useEffect, useState } from "react";

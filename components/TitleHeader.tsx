@@ -13,9 +13,9 @@ const TitleHeader: FC<TitleProps> = ({title, subtitle}) => {
       </h1>)
       }
       {
-        subtitle && (<p className="text-textSec text-[17px] font-bold text-center tracking-[0.2px]">
+        subtitle && (<h2 className="text-textSec text-[17px] font-bold text-center tracking-[0.2px]">
             {subtitle}
-          </p>)
+          </h2>)
       }
     </div>
   );

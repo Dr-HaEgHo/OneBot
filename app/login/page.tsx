@@ -13,7 +13,7 @@ import TitleHeader from "@/components/TitleHeader";
 
 export default function Signin() {
   const router = useRouter();
-  const { setNavSignup } = useContext(GlobalContext)
+  const { setNavSignup, setButton } = useContext(GlobalContext)
 
   useEffect(() => {
     setNavSignup({
@@ -22,6 +22,7 @@ export default function Signin() {
       route: '/signup',
       classes: 'border-appOrange'
     })
+    setButton(null)
   }, [])
 
   return (
