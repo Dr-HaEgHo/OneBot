@@ -13,6 +13,7 @@
     "@reduxjs/toolkit": "^2.2.3",
     "axios": "^1.6.8",
     "cogo-toast": "^4.2.3",
+    "dotenv": "^16.4.7",
     "formik": "^2.4.6",
     "iconsax-react": "^0.0.8",
     "next": "14.2.5",
@@ -25,6 +26,7 @@
     "yup": "^1.4.0"
   },
   "devDependencies": {
+    "@types/fb": "^0.0.30",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

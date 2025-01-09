@@ -207,11 +207,14 @@ export interface AnnouncementTableProps {
 }
 
 export interface button {
-  cta?:() => void;
-  text: string;
+  cta?: () => void;
+  text?: string;
   pClass?: string;
   btnClass?: string;
-  image?:string;
+  image?: string;
+  children?: React.ReactNode;
+  disabled?: boolean;
+  type?: "button" | "submit" | "reset" | undefined;
 }
 
 
@@ -246,4 +249,8 @@ export interface NavProps {
   action?: () => void;
   classes?: string;
   pClass?: string
+}
+
+export interface plans {
+  plan: 'Free'
 }

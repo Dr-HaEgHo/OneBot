@@ -1,208 +1,261 @@
-'use client'
+"use client";
 
-import { CloseCircle, CloseSquare, Logout, MenuBoard, People, Profile } from 'iconsax-react'
-import Image from 'next/image';
-import React, { Dispatch, FC, SetStateAction, useContext, useState } from 'react';
-import { useParams, usePathname } from 'next/navigation';
-import { useRouter } from 'next/navigation';
+import {
+  CloseCircle,
+  CloseSquare,
+  Logout,
+  MenuBoard,
+  People,
+  Profile,
+} from "iconsax-react";
+import Image from "next/image";
+import React, {
+  Dispatch,
+  FC,
+  SetStateAction,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
+import { useParams, usePathname } from "next/navigation";
+import { useRouter } from "next/navigation";
 // import { links } from './homepage/Navbar';
-import Link from 'next/link';
-import { GlobalContext } from '@/context/context';
+import Link from "next/link";
+import { GlobalContext } from "@/context/context";
 // import Prompt from './Prompt';/
 // import { useAppDispatch } from '@/store/hooks';
 // import { logout } from '@/store/auth/authSlice';
 
 const Sidebar = () => {
+  const location = usePathname();
+  const router = useRouter();
+  const param = useParams();
+  // const dispatch = useAppDispatch();
 
-    const location = usePathname();
-    const router = useRouter();
-    const param = useParams();
-    // const dispatch = useAppDispatch();
+  const { mainSidebarOpen, setMainSidebarOpen } = useContext(GlobalContext);
 
+  const [onlineStatus, setOnlineStatus] = useState("online");
+  const [logoutOpen, setLogoutOpen] = useState(false);
 
-    const { mainSidebarOpen, setMainSidebarOpen} = useContext(GlobalContext)
+  const sidebarLinks = [
+    {
+      id: "overview",
+      image: require("@/assets/icons/sidebar/home-wh.svg"),
+      imageOn: require("@/assets/icons/sidebar/home-on.svg"),
+      title: "Overview",
+      route: "/dashboard",
+      subRoutes: "/dashboard",
+      subRoutes1: `/dashboard`,
+    },
+    {
+      id: "live-chat",
+      image: require("@/assets/icons/sidebar/chat-wh.svg"),
+      imageOn: require("@/assets/icons/sidebar/chat-on.svg"),
+      title: "Live Chat",
+      route: "/dashboard/live-chat",
+      subRoutes: "/dashboard/live-chat",
+      subRoutes1: `/dashboard/live-chat`,
+    },
+    {
+      id: "automation",
+      image: require("@/assets/icons/sidebar/automation-wh.svg"),
+      imageOn: require("@/assets/icons/sidebar/automation-on.svg"),
+      title: "Automation",
+      route: "/dashboard/automation",
+      subRoutes: "/dashboard/automation",
+      subRoutes1: `/dashboard/automation`,
+    },
+    {
+      id: "campaigns",
+      image: require("@/assets/icons/sidebar/campaigns-wh.svg"),
+      imageOn: require("@/assets/icons/sidebar/campaigns-on.svg"),
+      title: "Campaigns",
+      route: "/dashboard/campaigns",
+      subRoutes: "/dashboard/campaigns",
+      subRoutes1: `/dashboard/campaigns`,
+    },
+    {
+      id: "insights",
+      image: require("@/assets/icons/sidebar/insights-wh.svg"),
+      imageOn: require("@/assets/icons/sidebar/insights-on.svg"),
+      title: "Insights",
+      route: "/dashboard/insights",
+      subRoutes: "/dashboard/insights",
+      subRoutes1: `/dashboard/insights`,
+    },
+    {
+      id: "templates",
+      image: require("@/assets/icons/sidebar/templates-wh.svg"),
+      imageOn: require("@/assets/icons/sidebar/templates-on.svg"),
+      title: "Templates",
+      route: "/dashboard/templates",
+      subRoutes: "/dashboard/templates",
+      subRoutes1: `/dashboard/templates`,
+    },
+    {
+      id: "contacts",
+      image: require("@/assets/icons/sidebar/contacts-wh.svg"),
+      imageOn: require("@/assets/icons/sidebar/contacts-on.svg"),
+      title: "Contacts",
+      route: "/dashboard/contacts",
+      subRoutes: "/dashboard/contacts",
+      subRoutes1: `/dashboard/contacts`,
+    },
+    {
+      id: "settings",
+      image: require("@/assets/icons/sidebar/settings-wh.svg"),
+      imageOn: require("@/assets/icons/sidebar/settings-on.svg"),
+      title: "Settings",
+      route: "/dashboard/settings",
+      subRoutes: "/dashboard/settings",
+      subRoutes1: `/dashboard/settings`,
+    },
+  ];
 
-    const [onlineStatus, setOnlineStatus] = useState("online");
-    const [logoutOpen, setLogoutOpen] = useState(false)
-    
+  const handleLogout = () => {
+    // dispatch(logout())
+    router.push("/login");
+  };
 
-    // const sidebarLinks = [
-    //     { id: 2, image:require('../assets/icons/dash.png'), title: "Dashboard", route: "/dashboard", subRoutes: "/dashboard/incubatees/new-incubatee", subRoutes1: `/dashboard/incubatees/${param?.id}` },
-    //     { id: 4, image:require('../assets/icons/courses.png'), title: "Courses", route: "/dashboard/courses", subRoutes1: `/dashboard/users/${param?.id}` },
-    //     { id: 3, image:require('../assets/icons/Users_Group2.svg'), title: "Students", route: "/dashboard/students", subRoutes1: `/dashboard/users/${param?.id}` },
-    //     { id: 3, image:require('../assets/icons/profile.png'), title: "Announcements", route: "/dashboard/announcements", subRoutes1: `/dashboard/announcements`},
-    //     { id: 5, image:require('../assets/icons/chat.png'), title: "Stac Hub", route: "/dashboard/chat", subRoutes1: `/dashboard/users/${param?.id}` },
-    //     { id: 6, image:require('../assets/icons/chat.png'), title: "Templates & Downloads", route: "/dashboard/downloads", subRoutes1: `/dashboard/users/${param?.id}` },
-    //     { id: 7, image:require('../assets/icons/settings.png'), title: "Settings", route: "/dashboard/settings", subRoutes1: `/dashboard/settings/${param?.id}` },
-    // ]
+  const toggleSidebar = () => {
+    setMainSidebarOpen(!mainSidebarOpen);
+  };
 
-    const handleLogout = () => {
-        // dispatch(logout())
-        router.push('/login')
+  const handleCancel = () => {
+    setLogoutOpen((prev: boolean) => (prev = !prev));
+  };
+
+  useEffect(() => {
+    if (mainSidebarOpen) {
+      console.log("issss open o");
+    } else {
+      console.log("iss nur open oh");
     }
+  }, [mainSidebarOpen]);
 
-    const toggleSidebar = () => {
-        setMainSidebarOpen(!mainSidebarOpen)
-    }
+  return (
+    <div className="w-full h-screen bg-appGrey border-sidebarDiv flex flex-col border-r-[0.2px] relative">
+      <div className="w-full h-[75px] flex items-center p-6 justify-center top-0 left-0 border-b border-divider">
+        <Image
+          src={require("../assets/icons/sidebar/logo-wh.svg")}
+          alt="logo"
+          className="w-full h-full"
+        />
+      </div>
 
-    const handleCancel = () => {
-        setLogoutOpen((prev: boolean) => prev = !prev)
-    }
+      {/* DRAWER SWITCH */}
+      <div
+        onClick={toggleSidebar}
+        className="w-7 h-7 absolute hoverActive bottom-10 cursor-pointer z-[999] -right-[14px]"
+      >
+        <Image
+          src={require("@/assets/icons/sidebar/drawer-button.svg")}
+          alt="drawer switch"
+          className="w-full "
+        />
+      </div>
 
-    return (
-        <div className='w-full h-screen sidebar-bg border-sidebarDiv border-r-[0.2px] relative'>
-            
-            <div className='w-full h-full absolute top-0 left-0'>
-                {/* <Image 
-                    src={require('../assets/images/sidebar.png')}
-                    alt='sidebar'
-                    className='w-full h-full object-cover'
-                /> */}
-            </div>
-            <div className="h-full w-full relative slim-scroll flex flex-col">
 
-                <div className='w-full lg:hidden flex items-center justify-center pt-10 z-[999999999999999999999999]'>
-                    <CloseCircle onClick={toggleSidebar} size="30" className="text-white hoverActive" variant='Bulk'/>
+
+
+      {/* LINKS */}
+      <div className="h-full w-full relative slim-scroll">
+        <div className="w-full px-6 pt-6">
+          <div className="w-full flex flex-col items-start gap-2">
+            {sidebarLinks?.map((item) => (
+              <div
+                key={item.id}
+                onClick={() => {
+                  router.push(item.route);
+                  // toggleSidebar()
+                }}
+                className={`w-full cursor-pointer relative transition duration-200 py-[10px] px-3 flex items-center gap-3 hover:opacity-80`}
+              >
+                <div className="w-5 h-5">
+                  <Image src={location === item.route ||
+                      location === item.subRoutes ||
+                      location === item.subRoutes1
+                        ? item.imageOn
+                        : item.image} alt="onebot.com" className="w-full" />
                 </div>
-
-                {/* TOP  */}
-                <div className="w-full py-6  2xl:py-10  flex flex-col items-center justify-center">
-                    <div className='w-[50%] flex items-center justify-center ' >
-                        {/* <Image 
-                            src={require('../assets/icons/Logo.svg')}
-                            alt='onebot.com'
-                            className='w-full'
-                        /> */}
-                    </div>
-                </div>
-
-                
-                {/* USER DETAILS SECTION */}
-                <div className='w-full flex flex-col items-center gap-4 mb-[38px] mt-[20px] 2xl:mt-[27px] 2xl:mb-[47px]' >
-                    <div className='w-[48px] h-[48px] rounded-full overflow-hidden flex items-center justify-center'>
-                        {/* <Image 
-                            src={require('../assets/images/Avatar.png')} 
-                            alt='onebot.com'
-                        /> */}
-                    </div>
-                    <div className='w-full flex flex-col items-center gap-1' >
-                        <h2 className='text-base text-white font-[400] text-center' >Kenny Michael</h2>
-                        <p className='text-xs text-userEmail font-[200] text-center' >kkmichaellll@gmail.com</p>
-                    </div>
-                </div>
-
-                {/* LINKS SECTION */}
-                <div className="w-full ">   
-
-                    {/* MAIN LINKS */}
-
-                    {/* <div className="w-full flex flex-col items-start gap-1 py-2">
-                        {sidebarLinks?.map((item) => (
-                            <div key={item.id} onClick={() => {
-                                router.push(item.route)
-                                toggleSidebar()
-                            }} className={`w-full cursor-pointer relative transition duration-200 pl-[38px] py-[12px] 2xl:py-[15px] flex border-primary1 items-center gap-4 hover:bg-whiteHover active:bg-whiteActive`}
-                                style={{
-                                    color: "#fff",
-                                    backgroundColor: location === item.route || location === item.subRoutes || location === item.subRoutes1 ? "#2A66AE" : "",
-                                }}
-                            > 
-                                <div
-                                    style={{
-                                        width: location === item.route || location === item.subRoutes || location === item.subRoutes1 ? 3 : 0
-                                    }}
-                                    className={`transition duration-200 left-0 bg-appOrange h-[20px] 2xl:h-[26px] absolute`} />
-                                
-                                <div className='w-5 h-5' >
-                                    <Image 
-                                        src={item.image }
-                                        alt='onebot.com'
-                                        className='w-full'
-                                    /> 
-                                </div>
-                                <p className={`text-xs 2xl:text-sm text-white font-[200]`} >{item.title && item.title}</p>
-                            </div>
-                        ))}
-                    </div> */}
-
-
-                    {/* SYSTEM LINKS */}
-
-
-                    {/* <div className="w-full flex flex-col items-start gap-2 py-3">
-                        <div onClick={() => {
-                            setLogoutOpen((prev: boolean) => prev = true)
-                        }} className={`w-full cursor-pointer transition duration-200 p-2 flex border-primary1 items-center gap-4 hover:bg-sidebarTxtHover active:bg-sidebarTxtActive`} >
-                            <Logout color="#D92C20" />
-                            <p className={`text-xs 2xl:text-sm font-normal text-error`} >Logout</p>
-                        </div>
-                    </div> */}
-                </div>
-
+                <p
+                  style={{
+                    color:
+                      location === item.route ||
+                      location === item.subRoutes ||
+                      location === item.subRoutes1
+                        ? "#FF5252"
+                        : "",
+                  }}
+                  className={`text-sm text-white font-medium `}
+                >
+                  {item.title && item.title}
+                </p>
+              </div>
+            ))}
+          </div>
 
       
-
-
-
-
-
-            </div>
         </div>
-    )
-}
+      </div>
+    </div>
+  );
+};
 
-export const SidebarMobile =() => {
+export const SidebarMobile = () => {
+  const { isSidebarOpen, setIsSidebarOpen } = useContext(GlobalContext);
 
-    const { isSidebarOpen, setIsSidebarOpen} = useContext(GlobalContext)
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
 
-    const toggleSidebar = () => {
-        setIsSidebarOpen(!isSidebarOpen)
-    }
-
-    return (
-        <div className={`transition duration-500 w-full fixed right-0 bg-white z-10 p-4 border-b border-primary`} 
-        style={{
-            top: isSidebarOpen ? '0%' : '-100%',
-            height: '90vh'
-        }}>
-            <div className='w-full flex items-center justify-between'>
-                {/* LOGO FOMR MOBILE*/}
-            <a href='/' className='w-[90px] block lg:hidden'>
-                {/* <Image 
+  return (
+    <div
+      className={`transition duration-500 w-full fixed right-0 bg-white z-10 p-4 border-b border-primary`}
+      style={{
+        top: isSidebarOpen ? "0%" : "-100%",
+        height: "90vh",
+      }}
+    >
+      <div className="w-full flex items-center justify-between">
+        {/* LOGO FOMR MOBILE*/}
+        <a href="/" className="w-[90px] block lg:hidden">
+          {/* <Image 
                     src={require('../assets/images/logoblack.png')}
                     alt='onebot.com'
                     className='w-full'
                 /> */}
-            </a>
-                <CloseSquare onClick={toggleSidebar} className='text-primary transition duration-200 w-10 min-w-10 h-10 cursor-pointer hoverActive' variant="Bold" />
-            </div>
+        </a>
+        <CloseSquare
+          onClick={toggleSidebar}
+          className="text-primary transition duration-200 w-10 min-w-10 h-10 cursor-pointer hoverActive"
+          variant="Bold"
+        />
+      </div>
 
-
-             {/* NAV */}
-             <div className='flex h-full flex-col gap-[40px] w-full items-center justify-center' >
-                <ul className='flex w-[70%] max-w-[400px] flex-col items-center gap-[40px]' >
-                    {/* {
+      {/* NAV */}
+      <div className="flex h-full flex-col gap-[40px] w-full items-center justify-center">
+        <ul className="flex w-[70%] max-w-[400px] flex-col items-center gap-[40px]">
+          {/* {
                         links && links.map(link => (
                             <a key={link?.id} href={link?.route} className='w-full flex items-center py-2 rounded transition duration hover:bg-blackHover active:bg-blackActive'><li className='text-sm 2xl:text-base text-center text-headDesc w-full'>{link?.title}</li></a>
                         ))
                     } */}
-                </ul>
-            
-                <Link href="/signup" className=''>
-                    <button className='buttons-2 flex items-center gap-1' >
-                        <p className='text-xs 2xl:text-sm text-white' >Get Started</p>
-                        {/* <Image 
+        </ul>
+
+        <Link href="/signup" className="">
+          <button className="buttons-2 flex items-center gap-1">
+            <p className="text-xs 2xl:text-sm text-white">Get Started</p>
+            {/* <Image 
                             src={require('../assets/icons/circleArrow.png')}
                             alt='onebot.com'
                             className='w-[18px]'
                         /> */}
-                    </button>
-                </Link>
-            </div>
-
-
-        </div>
-    )
-}
+          </button>
+        </Link>
+      </div>
+    </div>
+  );
+};
 
 export default Sidebar;

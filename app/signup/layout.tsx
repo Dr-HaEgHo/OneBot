@@ -33,7 +33,7 @@ const SignupLayout = ({ children }: { children: React.ReactNode }) => {
         </div>
 
         {/* Right */}
-        <div className="h-screen sticky top-0 aspect-[0.5] flex flex-col">
+        <div className="h-screen sticky top-0 aspect-[0.5] z-[99999] flex flex-col">
           <MuralComponent>{child}</MuralComponent>
         </div>
       </div>

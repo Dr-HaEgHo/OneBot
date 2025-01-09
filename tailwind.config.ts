@@ -77,6 +77,7 @@ const config: Config = {
         focusInputBorder: '#ff3e3e',
         errorInputBorder: '#fc6565',
         lightBlueBorder: '#92e5ff',
+        divider: '#5C5F65',
 
         // notifications
         noteSuccess: '#42c684',

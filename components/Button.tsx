@@ -30,17 +30,23 @@ export const BoundlessIconButton: FC<button> = ({cta, text, pClass, btnClass, im
   )
 }
 
-export const FilledButton: FC<button> = ({cta, text, pClass, btnClass, image}) => {
+
+export const FilledButton: FC<button> = ({cta, text, pClass, btnClass, image, disabled, type, children}) => {
   return (
-    <button onClick={cta} className={`button-filled flex items-center gap-1 ${btnClass}`}>
+    <button onClick={cta} type={type} disabled={disabled} className={`button-filled flex items-center gap-1 ${btnClass}`}>
         {
           image && <Image
           src={image as string}
           alt="left arrow for back action"
           className='h-6 w-6'
-        />
+          width={1024}
+          height={1024}
+          />
         }
-        <p className={`text-textBody ${pClass}`}>{text}</p>
+        
+        {
+          children ? children : (<p className={`font-semibold ${pClass}`}>{text}</p>)
+        }
     </button>
   )
 }

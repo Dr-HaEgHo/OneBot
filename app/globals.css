@@ -84,6 +84,10 @@ input:disabled{
   @apply shadow-shadow 
 }
 
+.hoverActive{
+  @apply hover:scale-[1.05] active:scale-100
+}
+
 .shadApp{
   box-shadow: 0px 12px 24px rgb(167, 209, 211, 0.24);
   transition: .2s ease-in-out
@@ -244,4 +248,32 @@ input:disabled{
 
 .igbg {
   background: url(../assets/icons/igButton.svg);
+}
+
+.spinning-logo{
+  animation: spinner 1s infinite linear;
+}
+
+.spin{
+  animation: spinner .3s infinite linear;
+}
+
+@keyframes lineGrow {
+  from {
+    width: 0%;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes spinner {
+  from {
+    transform: rotateZ(0deg);
+  }
+
+  to {
+    transform: rotateZ(359deg)
+  }
 }

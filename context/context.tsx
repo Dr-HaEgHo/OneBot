@@ -39,12 +39,24 @@ interface ContextProps {
   setError: Dispatch<SetStateAction<string | null>>;
   companyType: string;
   setCompanyType: Dispatch<SetStateAction<string>>;
-  child: React.ReactNode | null,
-  setChild: Dispatch<SetStateAction<React.ReactNode | null>>
+  child: React.ReactNode | null;
+  setChild: Dispatch<SetStateAction<React.ReactNode | null>>;
   navSignup: NavProps | null;
   setNavSignup: Dispatch<SetStateAction<NavProps | null>>;
   infoMsg: string;
-  setInfoMsg: Dispatch<SetStateAction<string>>
+  setInfoMsg: Dispatch<SetStateAction<string>>;
+  headerInfo: string;
+  setHeaderInfo: Dispatch<SetStateAction<string>>;
+  signinOption: number | null;
+  setSigninOption: Dispatch<SetStateAction<number | null>>;
+  token: string | null;
+  setToken: Dispatch<SetStateAction<string | null>>;
+  userDetails: any | null;
+  setUserDetails: Dispatch<SetStateAction<any | null>>;
+  signupSuccess: boolean | null;
+  setSignupSuccess: Dispatch<SetStateAction<boolean | null>>;
+  signinSuccess: boolean | null;
+  setSigninSuccess: Dispatch<SetStateAction<boolean | null>>;
 }
 
 // const initialState = {
@@ -57,7 +69,7 @@ export const GlobalContext = createContext<ContextProps>({
   isSidebarOpen: true,
   setIsSidebarOpen: (): boolean => false,
   mainSidebarOpen: false,
-  setMainSidebarOpen: (): boolean => false,
+  setMainSidebarOpen: (): boolean => true,
   currentCourse: null,
   setCurrentCourse: (): courseData | null => null,
   nowPlaying: null,
@@ -69,19 +81,31 @@ export const GlobalContext = createContext<ContextProps>({
   data: null,
   setData: (): ImageData | null => null,
   button: null,
-  setButton : () :button | null => null,
+  setButton: (): button | null => null,
   rightButton: null,
-  setRightButton : () :button | null => null,
+  setRightButton: (): button | null => null,
   error: null,
-  setError: () : string | null => null,
-  companyType: '',
-  setCompanyType: () :string => "",
+  setError: (): string | null => null,
+  companyType: "",
+  setCompanyType: (): string => "",
   child: null,
-  setChild: () : React.ReactNode => null,
+  setChild: (): React.ReactNode => null,
   navSignup: null,
-  setNavSignup: () : NavProps | null => null,
-  infoMsg: '',
-  setInfoMsg: () : string => ''
+  setNavSignup: (): NavProps | null => null,
+  infoMsg: "",
+  setInfoMsg: (): string => "",
+  headerInfo: "",
+  setHeaderInfo: (): string => "",
+  signinOption: null,
+  setSigninOption: (): number | null => null,
+  token: null,
+  setToken: (): string | null => null,
+  userDetails: null,
+  setUserDetails: (): any | null => null,
+  signupSuccess: null,
+  setSignupSuccess: (): boolean | null => null,
+  signinSuccess: null,
+  setSigninSuccess: (): boolean | null => null,
 });
 
 export const GlobalContextProvider = ({
@@ -94,17 +118,22 @@ export const GlobalContextProvider = ({
   const [currentCourse, setCurrentCourse] = useState<courseData | null>(null);
   const [nowPlaying, setNowPlaying] = useState<string | null>(null);
   const [picture, setPicture] = useState<string | null>(null);
-  const [mainSidebarOpen, setMainSidebarOpen] = useState<boolean>(false);
+  const [mainSidebarOpen, setMainSidebarOpen] = useState<boolean>(true);
   const [openChatNav, setOpenChatNav] = useState<boolean>(true);
   const [data, setData] = useState<ImageData | null>(null);
-  const [button, setButton ] = useState<button | null>(null)
-  const [rightButton, setRightButton ] = useState<button | null>(null)
-  const [error, setError ] = useState<string | null>(null);
+  const [button, setButton] = useState<button | null>(null);
+  const [rightButton, setRightButton] = useState<button | null>(null);
+  const [error, setError] = useState<string | null>(null);
   const [companyType, setCompanyType] = useState<string>("");
   const [child, setChild] = useState<React.ReactNode | null>(null);
-  const [ navSignup, setNavSignup] = useState<NavProps | null>(null);
-  const [ infoMsg, setInfoMsg ] = useState<string>('')
-
+  const [navSignup, setNavSignup] = useState<NavProps | null>(null);
+  const [infoMsg, setInfoMsg] = useState<string>("");
+  const [headerInfo, setHeaderInfo] = useState<string>("");
+  const [signinOption, setSigninOption] = useState<number | null>(null);
+  const [token, setToken] = useState<string | null>(null);
+  const [userDetails, setUserDetails] = useState<any | null>(null);
+  const [signupSuccess, setSignupSuccess] = useState<boolean | null>(null);
+  const [signinSuccess, setSigninSuccess] = useState<boolean | null>(null);
 
   return (
     <GlobalContext.Provider
@@ -123,22 +152,34 @@ export const GlobalContextProvider = ({
         setMainSidebarOpen,
         openChatNav,
         setOpenChatNav,
-        data, 
+        data,
         setData,
         button,
         setButton,
         rightButton,
         setRightButton,
-        error, 
+        error,
         setError,
         companyType,
         setCompanyType,
-        child, 
+        child,
         setChild,
-        navSignup, 
+        navSignup,
         setNavSignup,
         infoMsg,
         setInfoMsg,
+        headerInfo,
+        setHeaderInfo,
+        signinOption,
+        setSigninOption,
+        token,
+        setToken,
+        userDetails,
+        setUserDetails,
+        signupSuccess,
+        setSignupSuccess,
+        signinSuccess,
+        setSigninSuccess,
       }}
     >
       {children}
