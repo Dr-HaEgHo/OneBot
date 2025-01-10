@@ -1,5 +1,11 @@
 import React from "react";
 
+
+
+
+
+
+
 export interface emailInputProps {
   label: string;
   placeholder: string;
@@ -254,3 +260,4 @@ export interface NavProps {
 export interface plans {
   plan: 'Free'
 }
+

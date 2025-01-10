@@ -6,7 +6,7 @@ import { GlobalContext } from "@/context/context";
 import Image from "next/image";
 import TitleHeader from "../TitleHeader";
 import dynamic from "next/dynamic";
-import { useFacebookSDK } from "@/hooks/useFacebookSdk";
+// import { useFacebookSDK } from "@/hooks/useFacebookSdk";
 import axios from "axios";
 import { baseUrlProd } from "@/config";
 import cogoToast from "cogo-toast";
@@ -19,7 +19,7 @@ const FacebookIntegration = dynamic(() => import("@/components/FacebookAuth"), {
 
 const Facebook = () => {
   const router = useRouter();
-  useFacebookSDK();
+  // useFacebookSDK();
 
   const search = useSearchParams();
   const channel = new URLSearchParams(search).get("channel");
